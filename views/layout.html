@@ -1,0 +1,224 @@
+<style>
+  .btn:hover {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.btn-linkedin-inversed {
+  background-color: #0083a8;
+  border-color: #0083a8;
+  color: white; }
+.btn-linkedin-inversed:hover {
+  background-color: transparent;
+  color: #0083a8; }
+.btn-linkedin {
+  background-color: transparent;
+  border-color: #0083a8;
+  color: #0083a8; }
+.btn-linkedin:hover {
+  background-color: #0083a8;
+  color: white; }
+
+  #main{
+    padding-top: 120px;
+  }
+
+  @media screen and (max-width: 1000px) and (min-width: 319px){
+
+    #main{
+      padding-top: 220px;
+    }
+  }
+
+</style>
+
+<div class="wrapper"  >
+  <nav class="navbar navbar-default navbar-fixed-top " style="background-color: white" ng-controller="navbarctrl">
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12">
+        <div class="navbar-brand">
+          <a ui-sref="dashboard.home">
+            <img  class="shrink-logo" style="margin-top: 0px;"  src="libs/assets/img/logo1-blue.jpg" alt="Logo">
+          </a>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12 col-xs-12 " style="margin-top: 20px;padding-bottom: 20px;">
+        <div id="custom-search-input">
+          <div class="input-group">
+            <input type="text" class="  search-query form-control" placeholder="Search" />
+                                <span class="input-group-btn">
+                                    <button class="btn btn-danger" type="button">
+                                      <span class=" glyphicon glyphicon-search"></span>
+                                    </button>
+                                </span>
+          </div>
+        </div>
+      </div>
+      <div class=" col-md-3 col-sm-12 col-xs-12 col-xs-" style="margin-top: 20px;padding-bottom: 20px;">
+        <div class="col-md-7 col-sm-7  col-xs-7">
+          <button  style="" ng-click="gotocreate()" class="dropdown btn btn-block btn-linkedin rounded"  >
+            Initiate Good Act
+          </button>
+        </div>
+        <div class="col-md-2 col-sm-2 col-xs-2" ng-hide="logged">
+          <button ng-click="$state.go('dashboard.signin')"  style=""class="btn  btn-stumbleupon rounded"  >
+            Login/Signup
+          </button>
+        </div>
+        <div class="col-md-2 col-sm-2 col-xs-2" ng-show="logged">
+          <a ui-sref='dashboard.profile.basic'>
+          <img height="35" class=" img-circle"  ng-src="{{pic}}" style="">
+          </a>
+        </div>
+        <div class="margin-left-10 col-md-2 col-sm-2 col-xs-2" ng-show="logged">
+                 <span class="fa-stack fa-lg" role="button" ng-click="logout()" style="border: none;">
+  <i class="fa fa-circle fa-stack-2x" style="color: #007dcb;"></i>
+  <i class="fa fa-power-off fa-stack-1x fa-inverse"></i>
+</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+    </nav>
+  <!--=== End Header v5 ===-->
+
+<!-- content -->
+  <div  class="container content" id="main" role="main"  ui-view  >
+  </div>
+  <!-- / content -->
+
+  <div id="footer-v2" class="footer-v2" >
+    <div class="footer" style="padding: 40px 0;">
+      <div class="container">
+        <div class="row">
+          <!-- About -->
+          <div class="col-md-4 md-margin-bottom-40">
+            <!-- About -->
+
+            <!-- Monthly Newsletter -->
+            <div class="headline"><h2 class="heading-sm">Monthly Newsletter</h2></div>
+            <p>Subscribe to our newsletter and stay up to date with the latest news and deals!</p>
+            <form class="footer-subsribe">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Email Address">
+								<span class="input-group-btn">
+									<button class="btn-u" type="button">Subscribe</button>
+								</span>
+              </div>
+            </form>
+            <!-- End Monthly Newsletter -->
+          </div><!--/col-md-4-->
+          <!-- End About -->
+
+
+          <!-- Link List -->
+          <div class="col-md-4 md-margin-bottom-40">
+            <div class="headline"><h2 class="heading-sm">Useful Links</h2></div>
+            <ul class="list-unstyled link-list">
+              <li><a ui-sref="dashboard.why" ui-sref-opts="{reload: true}">Why Karmyo</a><i class="fa fa-angle-right"></i></li>
+              <li><a ui-sref="dashboard.about" ui-sref-opts="{reload: true}">About Us</a><i class="fa fa-angle-right"></i></li>
+              <li><a >Careers</a><i class="fa fa-angle-right"></i></li>
+              <li><a href="#"> NGO Partnership</a><i class="fa fa-angle-right"></i></li>
+              <li><a ui-sref="dashboard.challenge" ui-sref-opts="{reload: true}"> Impactpreneur Challenge</a><i class="fa fa-angle-right"></i></li>
+              <li><a ui-sref="dashboard.newsandviews" ui-sref-opts="{reload: true}"> News and Views</a><i class="fa fa-angle-right"></i></li>
+            </ul>
+          </div>
+          <!-- End Link List -->
+
+
+          <!-- End Latest Tweets -->
+
+          <!-- Address -->
+          <div class="col-md-4 md-margin-bottom-40">
+            <div class="headline"><h2 class="heading-sm">Contact Us</h2></div>
+            <address class="md-margin-bottom-40" style="line-height: 23px;">
+              <i class="fa fa-home" style="min-width: 20px;margin-right: 5px;text-align: center;"></i>Mumbai<br />
+              <i class="fa fa-phone" style="min-width: 20px;margin-right: 5px;text-align: center;"></i>Phone: 02265878998 <br />
+              <i class="fa fa-envelope" style="min-width: 20px;margin-right: 5px;text-align: center;"></i>Email: <a href="mailto:hello@crudmon.com">happy@karmyo.com</a>
+            </address>
+
+            <!-- Social Links -->
+            <ul class="social-icons">
+              <li><a href="#" data-original-title="Facebook" class="rounded-x social_facebook"></a></li>
+              <li><a href="#" data-original-title="Twitter" class="rounded-x social_twitter"></a></li>
+              <li><a href="#" data-original-title="Goole Plus" class="rounded-x social_googleplus"></a></li>
+              <li><a href="#" data-original-title="Linkedin" class="rounded-x social_linkedin"></a></li>
+            </ul>
+            <!-- End Social Links -->
+          </div>
+          <!-- End Address -->
+        </div>
+      </div>
+    </div><!--/footer-->
+
+    <div class="copyright" >
+      <div class="container">
+        <p class="text-center">2016 &copy; <a target="_blank" href="http://karmyo.com" >Karmyo</a></p>
+      </div>
+    </div><!--/copyright-->
+  </div>
+  <!--=== End Footer v2 ===-->
+</div>
+
+
+<script type="text/ng-template" id="myModalContent.html" ng-cloak="">
+
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" ng-click="closeit()">&times;</button>
+        <h4 class="modal-title" id="myModalLabel4">INITIATE NOW</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row"  style="border:none;">
+          <div class="col-md-4"   ng-click="gotc()" style="border: hidden;padding: 0px;margin:0px;">
+            <div class="thumbnails thumbnail-style" style="margin:0px;padding: 20px;" >
+              <img class="img-responsive " src="images/event.jpg"   class=""  />
+              <div class="caption" align="center">
+                <h3><a class="hover-effect" href="#">Event</a></h3>
+                <p>Create events that have a positive social impact! Make your events discoverable by many like-minded people near you.</p>
+              </div>
+            </div>
+          </div>
+         <!-- <div class="col-md-4"  ng-click="gotf()" style="border: hidden;padding: 0px;margin:0px;">
+            <div class="thumbnails thumbnail-style" style="margin:0px; padding: 20px;">
+              <img class="img-responsive " src="images/fundraiser.png"   class=""  />
+              <div class="caption" align="center">
+                <h3><a class="hover-effect" href="#">Fundraiser</a></h3>
+                <p>Stand for an important cause. Support trusted social initiatives that are making our world a better place..</p>
+              </div>
+            </div>
+          </div>-->
+          <div class="col-md-4"  ng-click="" style="border: hidden;padding: 0px;margin:0px;">
+            <div class="thumbnails thumbnail-style" style="margin:0px; padding: 20px;">
+              <!--<img class="img-responsive " src="images/fundraiser.png"   class=""  />-->
+              <div class="caption" align="center">
+                <!--<h3><a class="hover-effect" href="#">Fundraiser</a></h3>
+                <p>Stand for an important cause. Support trusted social initiatives that are making our world a better place..</p>-->
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4" ng-click="gots()" style="border: hidden;padding: 0px;margin:0px;">
+            <div class="thumbnails thumbnail-style" style="margin:0px; padding: 20px;">
+              <img class="img-responsive " src="images/story.png"   class=""  />
+              <div class="caption" align="center">
+                <h3><a class="hover-effect" href="#">Story</a></h3>
+                <p>Submit a real, inspirational story of an act of goodness or a social change.</p>
+
+              </div>
+            </div>
+          </div>
+        </div><!--/row-->
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+</script>

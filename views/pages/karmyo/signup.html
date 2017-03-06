@@ -1,0 +1,70 @@
+<div class="container  animated slideInDown">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <form class="reg-page"  name="form_reg" novalidate>
+                <div class="reg-header">
+                    <h2>Register a new account</h2>
+                    <p>Already Signed Up? Click <a ui-sref="dashboard.signin" class="color-green">Sign In</a> to login your account.</p>
+                </div>
+
+                <label> Name <span class="color-red">*</span>
+                    <span class="label float-label red" style="background-color: #ffffff;color: red"  ng-show="form_reg.name.$invalid && form_reg.name.$touched"> Required </span>
+                </label>
+                <input ng-model="user.name" name="name" tabindex="1" type="text" class="form-control margin-bottom-20" required>
+
+
+
+
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label>Email Address <span class="color-red">*</span>
+                            <span class="label float-label red" style="background-color: #ffffff;color: red"  ng-show="form_reg.email.$invalid && form_reg.email.$touched"> Valid Email Required</span>
+
+                        </label>
+                        <input ng-model="user.email" name="email" tabindex="2" type="email" class="form-control margin-bottom-20" required>
+                    </div>
+                    <div class="col-sm-6">
+                        <label>Phone No<span class="color-red">*</span>
+                            <span class="label float-label red" style="background-color: #ffffff;color: red"  ng-show="form_reg.mobile_no.$invalid && form_reg.mobile_no.$touched"> Valid Phone no Required</span>
+
+                        </label>
+                        <input ng-model="user.mobile_no"  ng-minlength="10" tabindex="3" ng-maxlength="11" ng-pattern="/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/" name="mobile_no" type="text" class="form-control margin-bottom-20">
+                    </div>
+                </div>
+
+                <label>Username  <em>{Minimum 4 Characters}</em> <span class="color-red">*</span>
+                    <span class="label float-label red" style="background-color: #ffffff;color: red"  ng-show="form_reg.username.$invalid && form_reg.username.$touched"> Minimum 4 characters required</span>
+                </label>
+                <input ng-model="user.username" ng-minlength="4"  tabindex="4" type="text" name="username" class="form-control margin-bottom-20" required>
+
+
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label>Password <em>{Minimum 4 Characters}</em> <span class="color-red">*</span>
+                            <span class="label float-label red" style="background-color: #ffffff;color: red"  ng-show="form_reg.password.$invalid && form_reg.password.$touched"> Minimum 4 characters required</span>
+
+                        </label>
+                        <input ng-model="password" ng-minlength="4" tabindex="5"  name="password" type="password" class="form-control margin-bottom-20" required>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-lg-6 checkbox">
+                        <!--<label>-->
+                            <!--<input type="checkbox" required>-->
+                            <!--I read <a href="page_terms.html" class="color-green">Terms and Conditions</a>-->
+                        <!--</label>-->
+                    </div>
+                    <div class="col-lg-6 text-right">
+                        <button class="btn-u" ng-disabled="form_reg.$invalid" style="" tabindex="6" type="button" ng-click="signup()" >Register</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div><!--/container-->
+<!--=== End Content Part ===-->

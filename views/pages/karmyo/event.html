@@ -1,0 +1,299 @@
+<style>
+    @media screen and (max-width: 1000px) and (min-width: 319px){
+
+        #testimonials-sampl{
+            display: none;
+        }
+    }
+</style>
+
+<div class="col-md-3" id="testimonials-sampl">
+
+    <div class="shadow-wrapper">
+
+        <blockquote class="hero box-shadow shadow-effect-2" style="background-color:#5bc0de;border-left:none;border-left: solid 2px #11b9f6;">
+            <strong><p style="color: white"><em>
+                ""We cannot accomplish all that we need to do without working together"</em></p>
+            </strong><small style="color: white"><em>Bill Richardson</em></small>
+        </blockquote>
+
+        <hr>
+
+
+        <blockquote class="hero box-shadow shadow-effect-2" style="background-color:#fff;border-left:none; border-right: solid 2px #11b9f6;">
+            <p><em>"The world is a dangerous place, not because of those who do evil, but because of those who look on and do nothing- Albert Einstein</em></small>
+        </blockquote>
+
+        <hr>
+
+        <blockquote class="hero box-shadow shadow-effect-2" style="background-color:#FAFAFA;border-left:none; border-left: solid 2px #11b9f6;">
+            <p><em>"No real social change has ever been brought about without a revolution..Revolution but thought carried into action- Emma Goldman </em></small>
+        </blockquote>
+
+    </div>
+
+</div>
+
+<div class="col-md-8 col-md-offset-1" >
+    <!-- General Unify Forms -->
+    <div class="heading heading-v3 margin-bottom-30">
+        <h2><header style="background:transparent;color:#11b9f6;border: none">
+            Create Your Event</header></h2>
+        <p style="color: #9E9E9E"><strong><i>Create an event that will have a positive social impact! Invite all your friends. Make your events discoverable by many like-minded people near you.</i></strong></p>    </div>
+    <form name="form_reg" class="sky-form" style="background:#555;border: solid 1px #eee;box-shadow: 0 0 3px #eee;">
+
+
+        <fieldset >
+            <section>
+                <label class="label">Title  <em> {Maximum 140 Characters}</em><span class="color-red"> *</span>
+                    <span class="red" style="background-color: #ffffff;color: red"  ng-show="form_reg.name.$invalid && form_reg.name.$touched"> Required </span>
+                </label>
+                <label class="input">
+                    <input type="text" placeholder="Title " required ng-maxlength="140" ng-model="event.name" name="name" tabindex="1">
+                </label>
+            </section>
+
+            <section>
+                <label class="label">Description<span class="color-red"> *</span>
+                    <span class="red" style="background-color: #ffffff;color: red"  ng-show="form_reg.description.$invalid && form_reg.description.$touched"> Required </span>
+                </label>
+                <div><text-angular ta-toolbar="[ ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'pre', 'quote','bold', 'italics', 'underline', 'ul', 'ol', 'redo', 'undo'],
+      ['justifyLeft', 'justifyCenter', 'justifyRight', 'indent', 'outdent'],
+      ['insertLink']]" ng-model="event.description" name="description" class="btn-groups" tabindex="2" required></text-angular></div>
+                <br>
+
+            </section>
+
+
+            <section>
+                <label class="label">Social Impact <span class="color-red"> *</span>
+                    <span class="red" style="background-color: #ffffff;color: red"  ng-show="form_reg.social_impact.$invalid && form_reg.social_impact.$touched"> Required </span>
+                </label>
+
+                <div><text-angular ta-toolbar="[ ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'pre', 'quote','bold', 'italics', 'underline', 'ul', 'ol', 'redo', 'undo'],
+      ['justifyLeft', 'justifyCenter', 'justifyRight', 'indent', 'outdent'],
+      ['insertLink']]"  ng-model="event.social_impact" name="social_impact" required class="btn-groups" tabindex="3"></text-angular></div>
+                <br>
+
+            </section>
+
+            <section>
+                <label class="label">Select Causes <span class="color-red"> *</span>
+                <span class="red" style="background-color: #ffffff;color: red"  ng-show="form_reg.causes.$invalid && form_reg.causes.$touched"> Required</span>
+                </label>
+                <label class="select">
+                    <select class="form-control" name="causes"  ng-model="event.causes"  ng-options="value.cause_id as value.cause_name  for value in causelist" tabindex="4" ng-required="true">
+                        <option value="" disabled="" selected="">Select Causes</option>
+                        <option>--</option>
+                    </select>
+
+                    <i></i>
+                </label>
+            </section>
+
+        </fieldset>
+
+        <fieldset>
+
+
+            <div class="row">
+                <section class="col col-6">
+                    <label class="label">Select Start Date <span class="color-red"> *</span>
+                        <span class="red" style="background-color: #ffffff;color: red"  ng-show="form_reg.start.$invalid && form_reg.start.$touched"> Required</span>
+                    </label>
+                    <label class="input">
+                        <i class="icon-append fa fa-calendar"></i>
+                        <input class="form-control" id="datetimepicker" size="16" type="text" value="" tabindex="5"  ng-model="start" name="start" style="cursor: default;" ng-required="true">
+                    </label>
+                </section>
+                <section class="col col-6">
+                    <label class="label">Select End Date <span class="color-red"> *</span>
+                        <span class="red" style="background-color: #ffffff;color: red"  ng-show="form_reg.finish.$invalid && form_reg.finish.$touched"> Required</span>
+                    </label>
+                    <label class="input">
+                        <i class="icon-append fa fa-calendar"></i>
+                        <input class="form-control" id="datetimepicker1" size="16" type="text" value="" tabindex="6"  ng-model="finish" name="finish" style="cursor: default;" ng-required="true">
+                    </label>
+                </section>
+            </div>
+
+
+            <div class="row">
+                <section class="col col-6">
+                    <label class="label">Select Start Time <span class="color-red"> *</span>
+                        <span class="red" style="background-color: #ffffff;color: red"  ng-show="form_reg.starttime.$invalid && form_reg.starttime.$touched"> Required</span>
+                    </label>
+                    <label class="input">
+                        <i class="icon-append fa fa-calendar"></i>
+                        <input class="form-control" id="timepicker" size="16" type="text" value="" tabindex="7"  ng-model="start_time" name="starttime" style="cursor: default;"required>
+                    </label>
+                </section>
+                <section class="col col-6">
+                    <label class="label">Select End Time <span class="color-red"> *</span>
+                        <span class="red" style="background-color: #ffffff;color: red"  ng-show="form_reg.endtime.$invalid && form_reg.endtime.$touched"> Required</span>
+                    </label>
+                    <label class="input">
+                        <i class="icon-append fa fa-calendar"></i>
+                        <input class="form-control" id="timepicker1" size="16" type="text" value="" tabindex="8"  ng-model="end_time" name="endtime" style="cursor: default;"required>
+                    </label>
+                </section>
+            </div>
+
+            <section>
+                <label class="label">Address Line 1 <span class="color-red"> *</span>
+                    <span class="red" style="background-color: #ffffff;color: red"  ng-show="form_reg.address_line_1.$invalid && form_reg.address_line_1.$touched"> Required</span>
+                </label>
+                <label class="input">
+                    <input type="text" placeholder="Address" required ng-model="event.address_line_1" tabindex="9"  name="address_line_1">
+                </label>
+            </section>
+
+
+
+
+            <section>
+                <label class="label">Address Line 2</label>
+                <label class="input">
+                    <input type="text" placeholder="Address"  ng-model="event.address_line_2" tabindex="10"  name="address_line_2">
+                </label>
+            </section>
+
+            <section>
+                <label class="label">Select City <span class="color-red"> *</span>,
+                    <span class="red" style="background-color: #ffffff;color: red"  ng-show="form_reg.cities.$invalid && form_reg.cities.$touched"> Required</span> </label>
+                <label class="select">
+                    <select class="form-control" name="cities"  required  ng-model="event.cities"  tabindex="11" ng-options="value.city_id as value.name  for value in citylist" >
+                        <option value="" disabled="" selected="">Select City</option>
+                        <option>--</option>
+                    </select>
+
+                    <i></i>
+                </label>
+            </section>
+
+
+
+        </fieldset>
+
+        <fieldset>
+
+
+            <section>
+                <label class="label">Would you like to raise funds through this event ? <span class="color-red">*</span></label>
+                    <div class="inline-group" >
+                    <label class="radio"><input type="radio"  name ="content" ng-model="content" value="fundraiser"><i class="rounded-x"></i>Fundraiser</label>
+                    <label class="radio"><input type="radio"   name = "content"  ng-model="content" value="ngo"> <i class="rounded-x"></i>Ngo</label>
+                    <label class="radio"><input type="radio"   name = "content"  ng-model="content" value="none"> <i class="rounded-x"></i>None</label>
+                </div>
+            </section>
+
+
+            <section  ng-show="content == 'fundraiser'">
+                <label class="label">Expected Amount<span class="color-red">*</span></label>
+                    <label class="input">
+                    <input type="number" tabindex="13"   ng-model="event.amount_expected" name="amount_expected" placeholder="Expected Amount" >
+                </label>
+            </section>
+
+
+            <section ng-show="content == 'fundraiser'">
+                <label class="label">Select NGO<span class="color-red">*</span></label>
+                                   <label class="select">
+                    <select  class="form-control" tabindex="14" name="ngos_fund"   ng-model="event.ngos_fund"  ng-options="value.ngo_id as value.name  for value in ngolist" >
+                        <option value="" disabled="" selected="">Select NGO</option>
+                        <option>--</option>
+                    </select>
+
+                    <i></i>
+                </label>
+            </section>
+
+            <section ng-show="content == 'ngo'">
+                <label class="label">Select NGO<span class="color-red">*</span></label>
+                        <label class="select">
+                    <select class="form-control" tabindex="15" name="ngos_fund"   ng-model="event.ngos_fund"  ng-options="value.ngo_id as value.name  for value in ngolist" >
+                        <option value="" disabled="" selected="">Select NGO</option>
+                        <option>--</option>
+                    </select>
+
+                    <i></i>
+                </label>
+            </section>
+
+            <section>
+                <label class="label">Select featured picture <span class="color-red">*</span>
+                    <span class="red" style="background-color: #ffffff;color: red"  ng-show="form_reg.filep.$invalid && form_reg.filep.$touched"> Required </span></label>
+                <label  class="input input-file">
+                    <div class="button">
+                        <input type="file" tabindex="16"  ngf-select ng-model="filep" name="filep"  id="fileInput" ngf-pattern="'image/*'"
+                               ngf-accept="'image/*'" ngf-max-size="15MB" ngf-min-height="100" required
+                               >Browse</div>
+                    <br>
+                </label>
+
+                <div class="col-sm-12 col-sm-offset-2">
+                    <div style="">
+                        <div style="margin-top: 20px;margin-bottom: 20px;">
+                            <a>
+                                <img src="{{myImage}}" class="img-responsive" width="500px;" height="200px;">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+
+
+            <!--<input type="submit" class="btn-u" name="submit" value="Submit" ng-click="upload_video(filep)">-->
+
+
+        </fieldset>
+
+
+        <footer>
+            <button  type="button" class="btn-u pull-right" ng-disabled="form_reg.$invalid" ng-click="create_event(filep)" tabindex="17" >Submit</button>
+
+            <button type="button" class="btn-u btn-u-default " >Reset</button>
+        </footer>
+    </form>
+ </div>
+
+
+<script>
+
+    jQuery('#datetimepicker').datetimepicker({
+        timepicker:false,
+        format:'d-m-Y',
+        formatDate:'Y-m-d',
+        minDate:'-1970-01-01',//yesterday is minimum date(for today use 0 or -1970/01/01)
+
+    });
+
+    jQuery('#datetimepicker1').datetimepicker({
+        timepicker:false,
+        format:'d-m-Y',
+        formatDate:'Y-m-d',
+        minDate:'-1970-01-01',//yesterday is minimum date(for today use 0 or -1970/01/01)
+
+    });
+
+    jQuery('#timepicker').datetimepicker({
+        datepicker:false,
+        format:'H:i',
+        minDate:'-1970-01-01',//yesterday is minimum date(for today use 0 or -1970/01/01)
+
+    });
+
+    jQuery('#timepicker1').datetimepicker({
+        datepicker:false,
+        format:'H:i',
+        minDate:'-1970-01-01',//yesterday is minimum date(for today use 0 or -1970/01/01)
+
+    });
+
+
+
+</script>

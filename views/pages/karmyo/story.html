@@ -1,0 +1,134 @@
+<style>
+    @media screen and (max-width: 1000px) and (min-width: 319px){
+
+        #testimonials-sampl{
+            display: none;
+        }
+    }
+</style>
+<div class="col-md-12" id="testimonials-sampl">
+    <!--Testimonials v1-->
+    <div class="heading heading-v3 ">
+
+        <h3 style="color: #11b9f6;font-size: medium">Messages</h3>
+    </div>
+    <div class="margin-bottom-40">
+        <div id="testimonials-1" class="carousel slide testimonials testimonials-v1 testimonials-bg-default">
+            <div class="carousel-inner">
+                <div class="item active col-md-4">
+                    <p>Crasjusto ducimus qui cupiditate non provident, similique sunt in culpaid est anditiis praesentium praesentium blanditiis praesentium non provident, similique sunt in culpaid est anditiis praesentium praesentium..</p>
+                    <div class="testimonial-info margin-bottom-30">
+                        <img class="rounded-x" src="libs/assets/img/testimonials/img1.jpg" alt="">
+										<span class="testimonial-author" >
+											Jeremy Asigner
+											<em style="color: black">Web Developer, Unify Theme.</em>
+										</span>
+                    </div>
+                </div>
+                <div class="item active col-md-4 ">
+                    <p>Crasjusto ducimus qui cupiditate non provident, similique sunt in culpaid est anditiis praesentium praesentium blanditiis praesentium non provident, similique sunt in culpaid est anditiis praesentium praesentium..</p>
+                    <div class="testimonial-info margin-bottom-30">
+                        <img class="rounded-x" src="libs/assets/img/testimonials/user.jpg" alt="">
+										<span class="testimonial-author">
+											User
+											<em style="color: black">Java Developer, Htmlstream</em>
+										</span>
+                    </div>
+                </div>
+                <div class="item active col-md-4 ">
+                    <p>Crasjusto ducimus qui cupiditate non provident, similique sunt in culpaid est anditiis praesentium praesentium blanditiis praesentium non provident, similique sunt in culpaid est anditiis praesentium praesentium..</p>
+                    <div class="testimonial-info margin-bottom-30">
+                        <img class="rounded-x" src="libs/assets/img/testimonials/img2.jpg" alt="">
+										<span class="testimonial-author">
+											Kate Davenport
+											<em style="color: black">Web Designer, Google Inc.</em>
+										</span>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="col-md-12 " >
+    <!-- General Unify Forms -->
+    <div class="heading heading-v3 margin-bottom-30" >
+        <h2><header style="background:transparent;color:#11b9f6;border: none">
+            Tell us your own story</header></h2>
+
+    </div>
+    <form  class="sky-form"  name="form_reg" novalidate style="background:#555;border: solid 1px #eee;box-shadow: 0 0 3px #eee;">
+
+
+        <fieldset >
+            <section>
+                <label class="label">Title  <em>{Maximum 140 Characters}</em> <span class="color-red">*</span>
+                    <span class="red" style="background-color: #ffffff;color: red"  ng-show="form_reg.name.$invalid && form_reg.name.$touched"> Required </span>
+                </label>
+                <label class="input">
+
+                    <input type="text"  placeholder="Title" ng-maxlength="140"  ng-model="story.name" name="name" tabindex="1" required>
+                </label>
+            </section>
+
+            <section>
+                <label class="label">Subtitle
+                    <span class="red" style="background-color: #ffffff;color: red"  ng-show="form_reg.subtitle.$invalid && form_reg.subtitle.$touched"> Required </span>
+                </label>
+                <label class="input">
+                    <input type="text" placeholder="Subtitle"  ng-model="story.subtitle" name="subtitle" tabindex="2" >
+                </label>
+            </section>
+
+            <section>
+                <label class="label">Content <span class="color-red">*</span>
+                    <span class="red" style="background-color: #ffffff;color: red"  ng-show="form_reg.description.$invalid && form_reg.description.$touched"> Required </span>
+                </label>
+                <div><text-angular ta-toolbar="[ ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'pre', 'quote'],
+      ['bold', 'italics', 'underline','ul', 'ol', 'redo', 'undo', 'clear'],
+      ['justifyLeft', 'justifyCenter', 'justifyRight', 'indent', 'outdent'],
+      ['insertLink']]" name="description" ng-model="story.description" class="btn-groups" tabindex="3" required></text-angular></div>
+                <br>
+
+            </section>
+
+
+            <section>
+                <label class="label">Select featured picture <span class="color-red">*</span>
+                    <span class="red" style="background-color: #ffffff;color: red"  ng-show="form_reg.filep.$invalid && form_reg.filep.$touched"> Required </span>
+                </label>
+                <label  class="input input-file">
+                    <div class="button">
+                        <input type="file"  ngf-select ng-model="filep" name="filep" id="fileInput" ngf-pattern="'image/*'"
+                               ngf-accept="'image/*'" ngf-max-size="15MB" ngf-min-height="100" tabindex="4" required>Browse</div>
+                    <br>
+                </label>
+
+                <div class="col-sm-12 col-sm-offset-4">
+                    <div style="">
+                        <div style="margin-top: 20px;margin-bottom: 20px;">
+                            <a>
+                                <img src="{{myImage}}"  class="" width="400px;" height="200px;">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </fieldset>
+
+
+
+
+        <footer>
+            <button type="button" class="btn-u btn-u-default " >Reset</button>
+            <button  type="button" class="btn-u pull-right" ng-disabled="form_reg.$invalid" tabindex="5" ng-click="create_event(filep)"  >Submit</button>
+
+        </footer>
+    </form>
+</div>
+
+
+
+

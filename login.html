@@ -1,0 +1,319 @@
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <title>Login</title>
+      <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+      <link href='https://fonts.googleapis.com/css?family=PT+Serif:400,700' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" type="text/css" href="cssp/style.css" />
+      <link rel="stylesheet" type="text/css" href="cssp/bootstrap.css" />
+      <link rel="stylesheet" href="pluginsp/animation/animation.css"/>
+      <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+   </head>
+   <body>
+      <div id="header">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="col-md-6"><a href="index.html"><img id="logo" class="pull-left" src="imagesp/logo.png"></img></a></div>
+               <div class="col-md-6"><button id="loginbutton" class="btntransparant pull-right" >Skip </button></div>
+            </div>
+         </div>
+      </div>
+      <div id="fullpage">
+         <div class="section " id="section10" >
+            <div id="outter-container">
+               <div id="inner-container" >
+                  <div id="centred" >
+                     <div class="col-md-4 col-md-offset-4">
+                        <div id="login" >
+                           <div class="cardround " >
+                              <div class="cardround-content">
+                                  <form id="loginform" >
+                              <div class="cardround-content">
+                                 <label>Email Address</label>
+                                 <input class="lightinput" placeholder="Enter Your Email Address" name="email"></input>
+                                 <input type="hidden" value="Web_102" name="device_id"></input>
+                                 <label>Password</label>
+                                 <input class="lightinput" name="password" type="password" placeholder="Enter Your Password" ></input>
+                                 <a href="#;" id="forgot">Forgot your Password ?</a><br>
+                                 
+                                    <div id="alertbox1" class="alert alert-success" data-dismiss="alert" style="visibility:hidden">
+                                                        <strong></strong>
+                                                 </div>
+                                     
+                                    
+                                 <input name="submit" type="button" class="loginbtn" value="Log In" onclick="login_function('#loginform')" >
+                                 <br><br>
+                                 <fb:login-button size="large"
+                 onlogin="checkLoginState()">
+  Connect using Facebook
+</fb:login-button> 
+                              </div>
+                            </form>
+                              </div>
+                           </div>
+                           <div class="createaccount" >
+                              <label>Don't have an account?</label>
+                              <a  href="#;" id="create">Create Account</a>	
+                           </div>
+                        </div>
+                        <div id="forgotpassword" style="display:none;">
+                           <div class="cardround " >
+                              <div class="cardround-content">
+                                 <label>Email Address</label>
+                                 <input class="lightinput" placeholder="Enter Your Email Address" ></input>
+                                 <!-- You can display the response in it if you have any response for the user
+                                    <div class="alert alert-success" data-dismiss="alert">
+                                                        <strong></strong>
+                                                 </div>
+                                     
+                                      -->
+                                 <button class="loginbtn" >Send</button> 
+                              </div>
+                           </div>
+                           <div class="createaccount" >
+                              <label>want to go back?</label>
+                              <a  href="#;" id="signf">Sign In</a>	
+                           </div>
+                        </div>
+                        <div id="register" style="display:none;">
+                           <form id="signup_form">
+                           <div class="cardround " >
+                              <div class="cardround-content">
+                                 <label>Name</label>
+                                 <input class="lightinput" id="name" name="name" placeholder="Enter Your Name" ></input>
+                                 <label>Email Address</label>
+                                 <input class="lightinput" type="text" placeholder="Enter Your Email Address" name="email" ></input>
+                                  <label>Phone Number</label>
+                                 <input class="lightinput" type="number" name="mobile_no" placeholder="Enter Your Phone Number" ></input>
+                                 <label>Username {Minimum 4 Characters}</label>
+                                 <input name="username" id="password" class="lightinput" type="text" placeholder="Enter Your Username" ></input>
+                                 <label>Password {Minimum 4 Characters} *</label>
+                                 <input class="lightinput" name="password" type="password" placeholder="Enter Your Password" ></input>
+                                 <input type="hidden" value="Web_102" name="device_id"></input>
+                                 
+                                    <div id="alertbox2" class="alert alert-success" >
+                                                        <strong></strong>
+                                                 </div>
+                                     
+                                      
+                                 <input name="submit" type="button" class="loginbtn" value="Let's Get Started" onclick="signup_function()" >
+                              </div>
+                           </div>
+                          </form> 
+                           <div class="createaccount" >
+                              <label>Already have an account?</label>
+                              <a href="#;" id="sign" >Sign In</a>	
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+      <script type="text/javascript" src="jsp/bootstrap.js"></script>
+      <script type="text/javascript" src="ajax.js"></script>
+      <script type="text/javascript" src="pluginsp/fullpage/jquery.fullPage.js"></script>
+      <script type="text/javascript">
+         $(document).ready(function() {
+         			$('#fullpage').fullpage({
+         			verticalCentered: false,
+         				anchors: ['login'],
+         				sectionsColor: ['#4A6FB1'],
+         				css3: true,
+         			});
+         	
+         			$("#create").click(function(){
+              $("#login").hide();
+             $("#register").fadeIn(1000);
+           
+         });
+         
+         $("#sign").click(function(){
+             $("#register").hide();
+         
+             $("#login").fadeIn(1000);
+           $("#forgotpassword").hide();
+         });
+         
+         $("#signf").click(function(){
+             $("#forgotpassword").hide();
+             $("#login").fadeIn(1000);
+           
+         });
+         $("#forgot").click(function(){
+             $("#login").hide();
+             $("#forgotpassword").fadeIn(1000);
+           
+         });
+         		    
+         		});
+         		
+         		  
+      </script>
+      <script type="text/javascript">
+      function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response);
+    // The response object is returned with a status field that lets the
+    // app know the current login status of the person.
+    // Full docs on the response object can be found in the documentation
+    // for FB.getLoginStatus().
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      testAPI();
+    } else if (response.status === 'not_authorized') {
+      // The person is logged into Facebook, but not your app.
+     // document.getElementById('status').innerHTML = 'Please log ' +
+      //  'into this app.';
+    } else {
+document.getElementById('status').innerHTML = 'Please log ' +
+        'into Facebook.';
+    }
+  };
+
+  // This function is called when someone finishes with the Login
+  // Button.  See the onlogin handler attached to it in the sample
+  // code below.
+  function checkLoginState() {
+  
+ console.log("Login");
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  };
+
+  window.fbAsyncInit = function() {
+   console.log("dasd");
+  FB.init({
+    appId      : '1650693435171288',
+    cookie     : true,  // enable cookies to allow the server to access 
+    status     :false,                    // the session
+    xfbml      : true,  // parse social plugins on this page
+    version    : 'v2.2' // use 
+    });
+
+ 
+
+
+
+ // Now that we've initialized the JavaScript SDK, we call 
+  // FB.getLoginStatus().  This function gets the state of the
+  // person visiting this page and can return one of three states to
+  // the callback you provide.  They can be:
+  //
+  // 1. Logged into your app ('connected')
+  // 2. Logged into Facebook, but not your app ('not_authorized')
+  // 3. Not logged into Facebook and can't tell if they are logged into
+  //    your app or not.
+  //
+  // These three cases are handled in the callback function.
+
+
+
+  
+
+
+
+ 
+
+  };
+
+  
+
+
+
+// Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+  function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me?fields=name,email,gender,picture', function(response) {
+      console.log('Successful login for: ' + response.id);
+     // document.getElementById('status').innerHTML =
+        //'Thanks for logging in, ' + response.name + '!';
+        //console.log(JSON.stringify(response));
+        //var obj=JSON.parse(response);
+        //console.log(response.gender);
+        //console.log(response.picture.data.url);
+       // document.getElementById("pic").innerHTML="<img src="+response.picture.data.url+"></img>";
+       console.log('dasd');
+       ajaxit(response.name,response.email,response.gender,response.picture.data.url,response.id);
+    });
+  }
+  
+
+
+
+
+
+/*function ajaxit(n,e,s,p,fbid)
+{
+  console.log(n);
+  //var u=_("user").value;
+  //if(u!="")
+  //  _("unstatus").innerHTML="Checking...";
+  //  if (u == '') {
+      //    document.getElementById("unstatus").innerHtml = "";
+        //  return;
+      //}
+     /* p=encodeURIComponent(p);
+      console.log(p);
+      console.log(fbid);
+          if (window.XMLHttpRequest) {
+              xmlhttp = new XMLHttpRequest();
+          }
+          else {
+              xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+          }
+
+          xmlhttp.onreadystatechange = function () {
+              if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+
+        //          //show(sem);
+          //        console.log(xmlhttp.responseText);
+
+               if(xmlhttp.responseText!=0)
+                {
+                  console.log(xmlhttp.responseText);
+      //            logout();
+               window.location.href="profile.php";
+               FB.logout(function(response) {
+   // Person is now logged out
+});
+           }
+               else if(xmlhttp.responseText==0)
+//_("unstatus").innerHTML="Name already taken";
+console.log("Not so nice");
+
+
+
+              }
+          }
+      
+      xmlhttp.open("GET", "social.php?sex=" + s+"&name="+n+"&email="+e+"&pic="+p+"&fbid="+fbid, true);
+      xmlhttp.send(); */
+//}*/
+
+
+
+
+
+
+
+    
+  </script>
+   </body>
+</html>
+

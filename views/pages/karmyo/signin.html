@@ -1,0 +1,164 @@
+<style>
+    .social-login {
+        padding-top: 50px;
+        border-top: 1px solid slategrey;
+        position: relative;
+    }
+    .or {
+        position: absolute;
+        border: 1px solid #fff;
+        width: 70px;
+        height: 70px;
+        top: -35px;
+        left: 50%;
+        margin-left: -35px;
+        text-transform: uppercase;
+        color: #fff;
+        background: #69c4c7;
+        line-height: 70px;
+        padding: 0 24px;
+        z-index: 1;
+
+    }
+    .rounded-x {
+        border-radius: 50% !important;
+    }
+</style>
+
+<div class="container  animated slideInDown " id="home">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+            <form class="reg-page"  name="form_reg" novalidate>
+                <div class="reg-header">
+                    <h2 style="color:#00aceb;">KARMYO</h2>
+                     <p>Inspiration & Opportunities to give-back!</p>
+                </div>
+
+                <div class="input-group ">
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <input ng-model="user.email" name="email" type="email" placeholder="Email" class="form-control" tabindex="1" required>
+
+                </div>
+                <span class="label float-label red margin-bottom-20" style="background-color: #ffffff;color: red"  ng-show="form_reg.email.$invalid && form_reg.email.$touched"> Required <br></span>
+                <br>
+                <div class="input-group ">
+                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                    <input ng-model="user.password" name="password" type="password" placeholder="Password" class="form-control" tabindex="2" required>
+
+                </div>
+
+                <span class="label float-label red margin-bottom-20" style="background-color: #ffffff;color: red"  ng-show="form_reg.password.$invalid && form_reg.password.$touched"> Required <br></span>
+                <br>
+
+                <div class="checkbox">
+                    <ul class="list-inline">
+                        <li>
+                            <label>
+                                <input type="checkbox"> Remember me
+                            </label>
+                        </li>
+
+                        <li class="pull-right" >
+                            <a ui-sref="dashboard.forgot-password" style="color: #003399">Forgot password?</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="row margin-top-20 margin-bottom-50">
+                    <div class="col-md-12">
+                        <button type="button" ng-disabled="form_reg.$invalid" ng-click="login()" class="btn-u btn-facebook-inversed btn-block rounded margin-bottom-20" tabindex="3">Sign In</button>
+                        <p class="text-center" >Don't have an account? <a ui-sref="dashboard.signup">Create New</a></p>
+
+                    </div>
+
+                </div>
+
+                <div class="login-block social-login">
+                    <div class="or rounded-x">Or</div>
+                    <ul class="list-unstyled">
+                        <li>
+                            <button class="btn rounded btn-block  btn-primary" onclick="allow()" >
+                                <i class="fa fa-facebook"></i> Sign in with Facebook
+                            </button>
+                        </li>
+
+                    </ul>
+                </div>
+
+
+
+            </form>
+        </div>
+    </div><!--/row-->
+</div><!--/container-->
+
+
+
+<script>
+
+
+
+    $('form input').on('keypress', function(e) {
+        return e.which !== 13;
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    var data_facebook;
+    var flag=0;
+    var data_info_facebook;
+    function allow(){
+        FB.login(function(response) {
+            if (response.authResponse) {
+                var access_token =   FB.getAuthResponse()['accessToken'];
+                console.log('Access Token = '+ access_token);
+                var id='';
+                FB.api('/me?fields=name,email,gender,picture', function(response) {
+                    id=response.id;
+                    data_info_facebook=JSON.stringify(response);
+
+
+
+                    angular.element(document.getElementById('home')).scope().login_fb(data_info_facebook);
+                });
+
+                // FB.api('/me/posts', function(response) {
+                // data_facebook= JSON.stringify(response);
+                // v = new XMLHttpRequest();
+                // v.open("POST", 'userdata', true);
+                // v.send(data_facebook);
+
+
+                //  });
+
+            } else {
+                console.log('User cancelled login or did not fully authorize.');
+            }
+        }, {scope: 'email'});
+
+
+        v = new XMLHttpRequest();
+        a=document.getElementById('detect_username_twitter').value;
+        v.open("POST", 'get_twitter_post', true);
+        v.send(JSON.stringify({"twitter_username":a}));
+    }
+
+
+
+
+</script>

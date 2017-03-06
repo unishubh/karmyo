@@ -1,0 +1,154 @@
+/*Registration and Login Page v1
+------------------------------------*/
+
+
+.reg-page {
+    color: #555;
+    padding: 30px;
+    background: #fefefe;
+    border: solid 1px #eee;
+    box-shadow: 0 0 3px #eee;
+}
+
+/*Reg Header*/
+.reg-header {
+    color: #555;
+    text-align: center;
+    margin-bottom: 35px;
+    border-bottom: solid 1px #eee;
+}
+
+.reg-header h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+/*Reg Forms*/
+.reg-page label {
+    color: #777;
+}
+
+
+.login-block .social-login {
+    padding-top: 50px;
+    border-top: 1px solid slategrey;
+    position: relative;
+}
+.login-block .or {
+    position: absolute;
+    border: 1px solid slategrey;
+    width:50px;
+    height: 50px;
+    top: -25px;
+    left: 50%;
+    margin-left: -25px;
+    color:slategrey;
+    text-transform: uppercase;
+    background: #fff;
+    line-height: 50px;
+    padding: 0 15px;
+    z-index: 1;
+}
+.login-block .btn {
+    line-height: 22px;
+}
+.login-block .btn .fa {
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.btn-facebook-inversed:hover {
+    background: #00aceb;
+    border-color: #2d4682;
+    color: #fff;
+}
+.btn-twitter-inversed:hover {
+    background: #3693c3;
+    border-color: #3693c3;
+    color: #fff;
+}
+
+
+
+/*404 Error Page v1
+------------------------------------*/
+.error-v1 {
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+.error-v1 p {
+    color: #555;
+    font-size: 16px;
+}
+
+.error-v1 span {
+    color: #555;
+    display: block;
+    font-size: 35px;
+    font-weight: 200;
+}
+
+.error-v1 span.error-v1-title {
+    color: #777;
+    font-size: 180px;
+    line-height: 200px;
+    padding-bottom: 20px;
+}
+
+/*For Mobile Devices*/
+@media (max-width: 500px) {
+    .error-v1 p {
+        font-size: 12px;
+    }
+
+    .error-v1 span {
+        font-size: 25px;
+    }
+
+    .error-v1 span.error-v1-title {
+        font-size: 140px;
+    }
+}
+
+/*Heasder*/
+
+
+#custom-search-input {
+    margin:0;
+    padding: 0;
+}
+
+#custom-search-input .search-query {
+    padding-right: 3px;
+    padding-right: 4px \9;
+    padding-left: 3px;
+    padding-left: 4px \9;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+#custom-search-input button {
+    border: 0;
+    background: none;
+    /** belows styles are working good */
+
+    position: relative;
+    left: -36px;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color:lightblue;
+}
+
+.search-query:focus + button {
+    z-index: 3;
+}
+
+

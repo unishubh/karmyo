@@ -1,0 +1,248 @@
+<head>
+    <style>
+        .btn:hover {
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+        }
+        .btn-linkedin-inversed {
+            background-color: #0083a8;
+            border-color: #0083a8;
+            color: white; }
+        .btn-linkedin-inversed:hover {
+            background-color: transparent;
+            color: #0083a8; }
+        .btn-linkedin {
+            background-color: transparent;
+            border-color: #0083a8;
+            color: #0083a8; }
+        .btn-linkedin:hover {
+            background-color: #0083a8;
+            color: white; }
+    </style>
+</head>
+
+<div class="wrapper" style="background: white" ng-cloak="">
+
+    <!--=== Content Part ===-->
+    <div class="container content" >
+        <div class="row blog-page">
+            <!-- Left Sidebar -->
+            <div class="col-md-8">
+                <!--Blog Post-->
+                <div class="blog margin-bottom-40">
+                    <h2><a style="font-size:xx-large">{{event.name | capitalize}}</a></h2>
+
+
+                        <hr>
+
+                    <div class="margin-top-20 blog-img">
+                        <img class="img-responsive" src="{{event.file_url}}" style="height:350px; width:100%" alt="">
+                    </div>
+
+                    <div class=" blog-post-tags col-md-12" style="border-bottom: none;">
+                        <div class="pull-left" style="margin-top: 10px;">
+
+                            <span style="font-size:medium; margin-left: 10px; ">Initiative By <i> {{event.creator_name}} </i></span>
+                        </div>
+
+                        <div class="pull-right" style="margin-top: 5px;">
+                            <button class="btn btn-linkedin rounded" ng-click="user_going(event.event_id)" ng-hide="going"> Going </button>
+                            <button class="btn btn-android-inversed rounded" disabled ng-click="user_going(event.event_id)" ng-show="going" style="cursor: default;"> <i class="fa fa-check"></i> Going </button>
+                            <a class="btn btn-linkedin rounded" socialshare
+                               socialshare-url="{{event.share_url}}"
+                                    socialshare-provider="facebook"
+
+                                    > Share </a>
+                        </div>
+
+                    </div>
+
+
+                    <!--<div class="blog-post-tags">-->
+                        <!--<ul class="list-unstyled list-inline blog-info">-->
+
+                            <!--<li style="font-size:medium;"><i class="fa fa-calendar" style="color: rgb(0, 177, 235); padding-right: 5px;font-size: 24px;"></i>{{states[0].start_date}}</li>-->
+                            <!--<li style="font-size:medium;"><span class="glyphicon glyphicon-time" style="color: rgb(0, 177, 235);font-size: 24px;padding-right: 2px;"></span> {{states[0].start_time}}</li>-->
+                            <!--<li style="font-size:medium;"><span class="glyphicon glyphicon-globe" style="color: rgb(0, 177, 235);font-size: 24px;padding-right: 5px;"></span>{{states[0].location}}</li>-->
+
+                        <!--</ul>-->
+
+
+                    <!--</div>-->
+                    <div class="panel">
+                        <div class="panel-heading " >
+                           <span class="color-blue font-light" style="font-size: large">Descriptions</span>
+                        </div>
+                        <div class="panel-body no-margin" ng-bind-html="event.description" style="font-size: 14px;">
+
+
+
+
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-heading " >
+                            <span class="color-blue font-light" style="font-size: large" >Social Impact</span>
+                        </div>
+                        <div class="panel-body no-margin" ng-bind-html="event.social_impact" style="font-size: 14px;">
+
+
+                        </div>
+
+
+                    </div>
+
+                    <div class="panel" ng-if="event.ngo_id">
+                        <div class="panel-heading " >
+                            <span class="color-blue font-light" style="font-size: large" >NGO - </span>
+                            <span class="color-blue font-light" style="font-size: medium" >{{event.ngo_name}}</span>
+                        </div>
+                        <div class="panel-body no-margin" ng-bind-html="event.ngo_description" style="font-size: 14px;">
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div id="fb-root"></div>
+
+
+                    <hr style="color:black">
+                    <div class="fb-comments" dyn-fb-comment-box page-href="{{curPath}}" data-numposts="5" data-colorscheme="light" data-width="100%"></div>
+
+
+                </div>
+                <!--End Blog Post-->
+
+
+            </div>
+            <!-- End Left Sidebar -->
+
+            <!-- Right Sidebar -->
+            <div class="col-md-3 magazine-page">
+                <!-- Search Bar -->
+
+                <div class="headline headline-md"><h2>Venue</h2></div>
+                <div class="margin-bottom-40">
+                    <div class="col-md-12">
+                        <div class="margin-top-20 margin-bottom-20">
+                            <span>
+                                <i class="fa fa-calendar" style="color: rgb(0, 177, 235); padding-right: 5px;font-size: 20px;">
+                            </i>
+                                {{event.start_date}} {{event.start_time}}
+                             <b> to </b> {{event.start_date}} {{event.start_time}}
+                            </span>
+                        </div>
+                        <div class="margin-top-10 margin-bottom-20">
+                            <span> <i class="glyphicon glyphicon-globe" style="color: rgb(0, 177, 235); padding-right: 5px;font-size: 20px;"></i>
+
+                                {{event.address_line_1 | capitalize}} {{event.address_line_2 | capitalize}},
+                                {{event.city | capitalize}}
+
+                            </span>
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="col-md-12   margin-bottom-30" style="height: 200px;" >
+                        <ng-map zoom="14" center="{{event.city}}" style="height:200px;"
+                                on-center-changed="centerCustomMarker()">
+                            <marker position="{{map_address}}" on-click="vm.showCustomMarker()"></marker>
+                        </ng-map>
+                    </div>
+                </div>
+
+                <!-- End Search Bar -->
+                <div class="headline headline-md"><h2>Members Going</h2></div>
+                <ul class="list-unstyled blog-photos margin-bottom-30">
+                    <li ng-repeat="member in members | limitTo:8" tooltip="{{member.name}}" tooltip-placement="bottom"><a><img class="hover-effect" alt="" ng-src="{{member.file_url}}"></a></li>
+                </ul>
+                <!-- End Photo Stream -->
+
+                <!-- Posts -->
+                <div class="posts margin-bottom-40">
+                    <div class="headline headline-md"><h2>Latest Events</h2></div>
+                    <dl class="dl-horizontal" ng-repeat="eventdata in latest">
+                        <dt><a><img src="{{eventdata.file_url}}" alt="" style="height:60px;"/></a></dt>
+                        <dd>
+                            <p><a ui-sref="dashboard.eventdetail({_id:eventdata.event_id})">{{eventdata.name | capitalize}}</a></p>
+
+                        <ul class="list-unstyled list-inline blog-info">
+
+                                <li style="font-size:xx-small;"><i class="fa fa-calendar" style="color: rgb(0, 177, 235);font-size: 16px ;padding-right:5px;"></i>{{eventdata.created_at.split(' ')[0] | date}}</li>
+
+                                <li style="font-size:xx-small;"><span class="glyphicon glyphicon-globe" style="color: rgb(0, 177, 235); font-size: 16px ;padding-right:5px;"></span>{{eventdata.city}}</li>
+
+                            </ul></dd>
+                    </dl>
+                </div><!--/posts-->
+                <!-- End Posts -->
+
+
+
+                <!-- Photo Stream -->
+
+
+
+
+
+            </div>
+            <!-- End Right Sidebar -->
+        </div><!--/row-->
+    </div><!--/container-->
+    <!--=== End Content Part ===-->
+
+</div><!--/wrapper-->
+
+<script type="text/javascript">
+    var geocoder;
+    var map;
+    var address ="A- 102 Harihar Nagar, Lucknow, Uttar Pradesh, India";			//replace it with the address from the backend
+    function initialize() {
+        geocoder = new google.maps.Geocoder();
+        var latlng = new google.maps.LatLng(-34.397, 150.644);
+        var myOptions = {
+            zoom: 18,
+            center: latlng,
+            mapTypeControl: true,
+            mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+            navigationControl: true,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+        if (geocoder) {
+            geocoder.geocode( { 'address': address}, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
+                        map.setCenter(results[0].geometry.location);
+
+                        var infowindow = new google.maps.InfoWindow(
+                                { content: '<b>'+address+'</b>',
+                                    size: new google.maps.Size(150,50)
+                                });
+
+                        var marker = new google.maps.Marker({
+                            position: results[0].geometry.location,
+                            map: map,
+                            title:address
+                        });
+                        google.maps.event.addListener(marker, 'click', function() {
+                            infowindow.open(map,marker);
+                        });
+
+                    } else {
+                        alert("No results found");
+                    }
+                } else {
+                    alert("Geocode was not successful for the following reason: " + status);
+                }
+            });
+        }
+    }
+</script>

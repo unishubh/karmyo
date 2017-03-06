@@ -1,0 +1,377 @@
+<head>
+
+
+</head>
+
+
+    <div  class=" panel col-md-offset-2 col-md-8" id="myWizard"
+          style="padding: 10px;box-shadow: 2px 2px 2px 2px #b2b2b2" >
+
+        <div class="panel-heading">
+        <h2>Complete your Profile</h2>
+        </div>
+
+        <div class="progress">
+            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="5" style="width: 20%;">
+                Step 1 of 5
+            </div>
+        </div>
+
+     <br>
+        <div class="tab-content" >
+            <div class="tab-pane fade in active" id="step1">
+
+                <div class=" well">
+                    <div class="profile-body">
+                        <div class="profile-bio">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <img class="img-circle img-responsive md-margin-bottom-10" src="libs/assets/img/team/img32-md.jpg" alt="">
+                                    <!--<a class="btn-u btn-u-sm" href="#">Change Picture</a>-->
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="col-md-12">
+                                        <h2>Subhash Kumar</h2>
+                                        <span><strong>Username:</strong> subhash.kumar.336</span>
+                                        <span><strong>Email:</strong>subhash.iiitm@gmail.com</span>
+
+                                        <div class="margin-bottom-10"></div>
+
+                                        <form class="">
+                                            <div class="form-group row">
+                                                <label style="margin-top: 5px;;" for="name" class="col-sm-3 form-control-label">Phone </label>
+                                                <div class="col-sm-9">
+                                                    <input  type="text" class="form-control" id="name"  value="Subhash" placeholder="Password">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label style="margin-top: 5px;;" for="name" class="col-sm-3 form-control-label">Gender</label>
+                                                <div class="col-sm-9">
+
+
+                                                    <select class="form-control" name="city">
+                                                        <option value="0">Choose name</option>
+                                                        <option value="1" >Agra</option>
+                                                        <option value="2" >Lucknow</option>
+
+                                                    </select>
+
+                                                </div>
+                                            </div>
+                                            <div  class="form-group row">
+                                                <label style="margin-top: 5px;" for="name" class="col-sm-3 form-control-label">DOB</label>
+                                                <div class="col-sm-9">
+                                                    <input class="form-control" placeholder="Select Date" id="datetimepicker" size="16" type="text" value=""  ng-model="start" name="start" style="cursor: default;"required>
+                                                </div>
+                                            </div>
+
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <a role="button" class="pull-left" data-target="#step2" data-toggle="tab" data-step="2" style="font-size: 18px;">Skip</a>
+
+                <a role="button" class="btn btn-primary btn-lg pull-right" data-target="#step2" data-toggle="tab" data-step="2">Save & Next</a>
+            </div>
+            <div class="tab-pane fade" id="step2">
+                <div class="well">
+                    <form class="">
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <label  for="name" class=" form-control-label">Select City</label>
+
+                            </div>
+                            <div class="col-sm-12">
+                                <select class="form-control" name="city">
+                                    <option value="0">Choose City</option>
+                                    <option value="1" >Agra</option>
+                                    <option value="2" >Lucknow</option>
+
+                                </select>
+                            </div>
+
+                            <i></i>
+
+                        </div>
+                        <div  class="form-group row">
+                            <div class="col-md-12">
+                                <label for="name" class=" form-control-label">Select Occupation</label>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <select class="form-control" onchange="occupation(this.value)" name="occ_id">
+                                    <option value="0">Choose Type</option>
+                                    <option value="1" >Student</option>
+                                    <option value="2" >Employee</option>
+                                    <option value="3" >Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+
+
+
+
+
+                    <section id="student" style="display:none">
+                        <div class="form-group row"  >
+                            <div class="col-md-12">
+                                <label  for="name" class=" form-control-label">Institute</label>
+
+                            </div>
+                            <div class="col-sm-12">
+                                <input  maxlength="100" type="text"  class="form-control" placeholder="Institute Name" id="occ1" />
+
+                            </div>
+                        </div>
+                        <div class="form-group row" >
+                            <div class="col-md-12">
+                                <label  for="name" class=" form-control-label">Course</label>
+
+                            </div>
+                            <div class="col-sm-12">
+                                <input  maxlength="100" type="text" class="form-control" placeholder="Institute Course" id="occ2" />
+
+                            </div>
+                        </div>
+                    </section>
+                    <section id="employee" style="display:none" >
+                        <div class="form-group row"  >
+                            <div class="col-md-12">
+                                <label  for="name" class=" form-control-label">Organization</label>
+
+                            </div>
+                            <div class="col-sm-12">
+                                <input  maxlength="100" type="text"  class="form-control" placeholder="Organization Name"id="occ3"  />
+
+                            </div>
+                        </div>
+                        <div class="form-group row"  >
+                            <div class="col-md-12">
+                                <label  for="name" class=" form-control-label">Work Nature</label>
+
+                            </div>
+                            <div class="col-sm-12">
+                                <input  maxlength="100" type="text"  class="form-control" placeholder="Work Nature" id="occ4" />
+                            </div>
+                        </div>
+
+                    </section>
+                    <section  id="other" style="display:none">
+                        <div class="form-group row"  >
+                            <div class="col-md-12">
+                                <label  for="name" class=" form-control-label">Other</label>
+
+                            </div>
+                            <div class="col-sm-12">
+                                <input  maxlength="100" type="text" class="form-control" placeholder="Enter Occupation details" id="occ5" />
+                            </div>
+                        </div>
+                    </section>
+
+
+                    <script >
+                        function occupation(val)
+                        {
+                            if(val==1)
+                            {
+
+
+                                console.log(document.getElementById("student").style.display);
+                                document.getElementById("employee").style.display='none';
+                                document.getElementById("other").style.display='none';
+                                document.getElementById("occ1").required='required';
+                                document.getElementById("occ2").required='required';
+                                document.getElementById("student").style.display='block';
+
+                            }
+                            else if(val==2)
+                            {
+                                document.getElementById("employee").style.display='block';document.getElementById("student").style.display='none';document.getElementById("other").style.display='none';document.getElementById("occ3").required='required';document.getElementById("occ4").required='required'}
+                            else if(val==3)
+                            {
+                                document.getElementById("other").style.display='block';document.getElementById("employee").style.display='none';document.getElementById("student").style.display='none';document.getElementById("occ5").required='required';}
+                        }
+                    </script>
+
+
+                </div>
+                <a role="button" class="pull-left" data-target="#step3" data-toggle="tab" data-step="3" style="font-size: 18px;">Skip</a>
+                <a class="btn btn-primary btn-lg pull-right" data-target="#step3" data-toggle="tab" data-step="3">Save & Next</a>
+            </div>
+            <div class="tab-pane fade" id="step3">
+                <div class="well">
+
+                    <form class="">
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <label  for="name" class=" form-control-label">Would you like to Volunteer with us? </label>
+
+                            </div>
+                            <div class="col-md-12">
+                                <div class="inline-group" >
+                                    <label class="radio-inline radio"><input type="radio" name="radio-inline" value="yes" ><i class="rounded-x"></i>YES</label>
+                                    <label class="radio-inline radio"><input type="radio" name="radio-inline" value="no" > <i class="rounded-x"></i>NO</label>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <label class=" form-control-label">Please select the type of involvement you would like to have </label>
+
+                            </div>
+                            <div class="col-md-12">
+                                <div class="inline-group">
+                                    <label class="checkbox-inline checkbox"><input type="checkbox" name="checkbox-inline" checked><i></i>Alexandra</label>
+                                    <label class="checkbox-inline checkbox"><input type="checkbox" name="checkbox-inline"><i></i>Alice</label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <label class=" form-control-label">Please Select the causes you support </label>
+
+                            </div>
+                            <div class="col-md-12">
+
+                                <div class="inline-group">
+                                    <label class=" checkbox-inline checkbox"><input type="checkbox" name="checkbox" checked><i></i>Alexandra</label>
+                                    <label class=" checkbox-inline checkbox"><input type="checkbox" name="checkbox"><i></i>Alice</label>
+                                    <label class="checkbox-inline checkbox"><input type="checkbox" name="checkbox"><i></i>Anastasia</label>
+
+
+                                    <label class=" checkbox-inline checkbox"><input type="checkbox" name="checkbox"><i></i>Avelina</label>
+                                    <label class="checkbox-inline checkbox"><input type="checkbox" name="checkbox"><i></i>Basilia</label>
+                                    <label class="checkbox-inline checkbox"><input type="checkbox" name="checkbox"><i></i>Beatrice</label>
+
+
+                                    <label class="checkbox-inline checkbox"><input type="checkbox" name="checkbox"><i></i>Cassandra</label>
+                                    <label class="checkbox-inline checkbox"><input type="checkbox" name="checkbox"><i></i>Clemencia</label>
+                                    <label class="checkbox-inline checkbox"><input type="checkbox" name="checkbox"><i></i>Desiderata</label>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <label class=" form-control-label">Have you ever participated in one of these programmes</label>
+
+                            </div>
+                            <div class="col-md-12">
+
+                                <div class="inline-group">
+                                    <label class="checkbox checkbox-inline"><input type="checkbox" name="checkbox-inline" checked><i></i>Alexandra</label>
+                                    <label class="checkbox checkbox-inline"><input type="checkbox" name="checkbox-inline"><i></i>Alice</label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <label class=" form-control-label">Are you ready to be relocated in order to volunteer with Karmyo?</label>
+
+                            </div>
+                            <div class="col-md-12">
+                                <div class="inline-group">
+                                    <label class="radio radio-inline"><input type="radio" name="radio-inline" value="yes" ><i class="rounded-x"></i>YES</label>
+                                    <label class="radio radio-inline"><input type="radio" name="radio-inline" value="no" > <i class="rounded-x"></i>NO</label>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <a role="button" class="pull-left" data-target="#step4" data-toggle="tab" data-step="4" style="font-size: 18px;">Skip</a>
+                <a class="btn btn-primary btn-lg pull-right" data-target="#step4" data-toggle="tab" data-step="4">Save & Next</a>
+            </div>
+            <div class="tab-pane fade" id="step4">
+                <div class="well"> <h2>Invite Your Friends</h2>
+                    <button class="btn-u btn-u-dark-blue"> <i class="fa fa-facebook-official"></i> Invite Friends</button>
+
+                </div>
+                <a role="button" class="pull-left" data-target="#step5" data-toggle="tab" data-step="5" style="font-size: 18px;">Skip</a>
+                <a class="btn btn-primary btn-lg pull-right" data-target="#step5" data-toggle="tab" data-step="5">Save & Next</a>
+            </div>
+            <div class="tab-pane fade" id="step5">
+                <div class="well"> <h2>Step 5</h2> You're Done!</div>
+                <a class="btn btn-success btn-lg pull-right"> Start over</a>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+<!--=== End Content Part ===-->
+
+<!--=== Sticky Footer ===-->
+
+<!--=== End Sticky Footer ===-->
+
+
+<!-- JS Global Compulsory -->
+
+<script type="text/javascript" src="libs/assets/plugins/counter/waypoints.min.js"></script>
+
+<script type="text/javascript" src="libs/assets/plugins/scrollbar/js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        App.init();
+        App.initScrollBar();
+
+    });
+</script>
+
+<script>
+
+
+    jQuery('#datetimepicker').datetimepicker({
+        timepicker:false,
+        format:'d/m/Y',
+        formatDate:'Y/m/d',
+        maxDate:'-1970/01/01',//yesterday is minimum date(for today use 0 or -1970/01/01)
+
+    });
+
+    $('.next').click(function(){
+
+        var nextId = $(this).parents('.tab-pane').next().attr("id");
+        $('[href=#'+nextId+']').tab('show');
+        return false;
+
+    })
+
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+
+        //update progress
+        var step = $(e.target).data('step');
+        var percent = (parseInt(step) / 4) * 100;
+
+        $('.progress-bar').css({width: percent + '%'});
+        $('.progress-bar').text("Step " + step + " of 3");
+
+        //e.relatedTarget // previous tab
+
+    })
+
+    $('.first').click(function(){
+
+        $('#myWizard a:first').tab('show')
+
+    })
+</script>

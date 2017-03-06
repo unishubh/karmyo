@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- CSS -->
+  <style>
+    html {
+      background-color: #ECF0F1;
+    }
+
+    h1 {
+      color: #2C3E50;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    body {
+      padding: 30px;
+      margin: 0;
+      font-family: sans-serif;
+      line-height: 130%;
+    }
+
+    a.btn {
+      display: inline-block;
+      width: 200px;
+      height: 200px;
+      margin-right: 30px;
+      background-color: #32B5E2;
+      transition: background-color 0.2s ease-in-out;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: auto 80px;
+      border-radius: 20px;
+    }
+
+    a.btn:hover {
+      background-color: #2BA7DD;
+    }
+
+    a.btn-content {
+      background-color: #2ECC71;
+      background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNzEuNyAzOTEuNjUiPjxwYXRoIGQ9Ik0zNjkuNjgsMzkxLjY1SDIyYTEyLDEyLDAsMCwxLTEyLTEyVjEyQTEyLDEyLDAsMCwxLDIyLDBoMzQ3LjdhMTIsMTIsMCwwLDEsMTIsMTJWMzc5LjY1QTEyLDEyLDAsMCwxLDM2OS42OCwzOTEuNjVaTTM0LDM2Ny42NWgzMjMuN1YyNEgzNFYzNjcuNjVaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtOS45OCkiIHN0eWxlPSJmaWxsOiNmZmYiLz48cGF0aCBkPSJNMzA1LjIzLDEwMC44Nkg4Ni40M2ExMiwxMiwwLDAsMSwwLTI0aDIxOC44QTEyLDEyLDAsMSwxLDMwNS4yMywxMDAuODZaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtOS45OCkiIHN0eWxlPSJmaWxsOiNmZmYiLz48cGF0aCBkPSJNMzA1LjIzLDE3Mi4xN0g4Ni40M2ExMiwxMiwwLDEsMSwwLTI0aDIxOC44QTEyLDEyLDAsMSwxLDMwNS4yMywxNzIuMTdaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtOS45OCkiIHN0eWxlPSJmaWxsOiNmZmYiLz48cGF0aCBkPSJNMzA1LjIzLDI0My40OEg4Ni40M2ExMiwxMiwwLDEsMSwwLTI0aDIxOC44QTEyLDEyLDAsMSwxLDMwNS4yMywyNDMuNDhaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtOS45OCkiIHN0eWxlPSJmaWxsOiNmZmYiLz48cGF0aCBkPSJNMTc4LDMxNC44SDg2LjQzYTEyLDEyLDAsMSwxLDAtMjRIMTc4QTEyLDEyLDAsMCwxLDE3OCwzMTQuOFoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC05Ljk4KSIgc3R5bGU9ImZpbGw6I2ZmZiIvPjwvc3ZnPg==);
+    }
+
+    a.btn-content:hover {
+      background-color: #27AE60;
+    }
+
+    a.btn-vimeo {
+      background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNDQxLjU3Ij48cGF0aCBkPSJNNTA5LjgyLDExNy4zOGMzLjgyLTIxLjQ0LDMuNzMtNDMuNDgtOS41MS02MC4xNUM0ODEuODQsMzMuODYsNDQyLjUyLDMzLDQxNS41OSwzNy4xMmMtMjEuOTEsMy4zNS05NiwzNi4wNS0xMjEuMjUsMTE0LjM0LDQ0LjY4LTMuNCw2OC4xLDMuMjIsNjMuOCw1Mi40Mi0xLjgsMjAuNTgtMTIuMiw0My4xMy0yMy44LDY0Ljc1LTEzLjQxLDI0LjkyLTM4LjU0LDczLjg2LTcxLjUsMzguNTgtMjkuNjktMzEuNzUtMjcuNDYtOTIuNDctMzQuMjQtMTMyLjktMy43OC0yMi42OS03Ljc4LTUxLTE1LjIxLTc0LjI5QzIwNyw4MCwxOTIuMjksNTUuNzcsMTc0LjMyLDUwLjUzLDE1NSw0NC44NiwxMzEuMTgsNTMuNzEsMTE3LjE3LDYyLDcyLjU3LDg4LjE3LDM4LjU4LDEyNS40NiwwLDE1Ni4yM0gwQzYuMjgsMTY5LjY4LDkuNzEsMTc4LjQsMjEsMTgwYzI2LjU2LDMuOTEsNTEuODctMjQuNzUsNjkuNTIsNS4wNywxMC43NCwxOC4yMiwxNC4xLDM4LjIsMjEsNTcuODQsOS4xOSwyNi4xNiwxNi4yOCw1NC42NSwyMy44LDg0LjczLDEyLjcyLDUxLDI4LjM2LDEyNy4xLDcyLjQsMTQ1Ljc1LDIyLjQ3LDkuNTQsNTYuMjUtMy4yMiw3My4zNS0xMy4zNiw0Ni4zMi0yNy40MSw4Mi40MS02Ny4xNSwxMTMuMzEtMTA3LjU5QzQ2NSwyNTYuNzcsNTAzLjkzLDE0OC4zNyw1MDkuODIsMTE3LjM4WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAtMzUuMjIpIiBzdHlsZT0iZmlsbDojZmZmIi8+PC9zdmc+);
+      background-color: #3498DB;
+    }
+
+    a.btn-vimeo:hover {
+      background-color: #2980B9;
+    }
+
+    a.btn-youtube {
+      background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgMzYwLjMzIj48cGF0aCBkPSJNNDkyLDEwNi43N2MtMTguNDgtMjItNTIuNi0zMC45My0xMTcuNzctMzAuOTNIMTM3LjcyQzcxLjA2LDc1Ljg0LDM2LjM2LDg1LjM4LDE4LDEwOC43NywwLDEzMS41NywwLDE2NS4xNywwLDIxMS42OHY4OC42NGMwLDkwLjEsMjEuMywxMzUuODQsMTM3LjcyLDEzNS44NEgzNzQuMjhjNTYuNTEsMCw4Ny44My03LjkxLDEwOC4wOC0yNy4zQzUwMy4xNCwzODksNTEyLDM1Ni41Miw1MTIsMzAwLjMyVjIxMS42OEM1MTIsMTYyLjY0LDUxMC42MSwxMjguODQsNDkyLDEwNi43N1pNMzI4LjcxLDI2OC4yNEwyMjEuMjksMzI0LjM4YTE2LjUyLDE2LjUyLDAsMCwxLTI0LjE3LTE0LjY0VjE5Ny44MmExNi41MiwxNi41MiwwLDAsMSwyNC4xMy0xNC42NmwxMDcuNDIsNTUuNzhBMTYuNTIsMTYuNTIsMCwwLDEsMzI4LjcxLDI2OC4yNFoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgLTc1Ljg0KSIgc3R5bGU9ImZpbGw6I2ZmZiIvPjwvc3ZnPg==);
+      background-color: #E74C3C;
+    }
+
+    a.btn-youtube:hover {
+      background-color: #C0392B;
+    }
+
+    .demo-inline-content {
+      padding: 30px;
+    }
+  </style>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../simple-overlay.css">
+
+  <!-- JS -->
+  <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="../simple-overlay.js"></script>
+
+  <title>jQuery simple-overlay Plugin Demo</title>
+</head>
+<body>
+
+<h1>jQuery simple overlay demo</h1>
+<div class="jquery-script-ads" style="margin:30px auto" align="center"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div style="text-align: center;">
+
+  <a href="html/load-content.html" class="btn btn-content"></a>
+  <!-- /.btn -->
+
+  <a href="https://vimeo.com/138192484"
+     data-vimeo="<iframe src='https://player.vimeo.com/video/138192484?autoplay=1&title=0&byline=0&portrait=0' width='640' height='360' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>"
+     class="btn btn-vimeo"></a>
+  <!-- /.btn btn-vimeo -->
+
+  <a href="https://www.youtube.com/watch?v=c6kiddk735g" class="btn btn-youtube"
+     data-youtube="<iframe width='560' height='315' src='https://www.youtube.com/embed/c6kiddk735g' frameborder='0' allowfullscreen></iframe>"></a>
+  <!-- /.btn btn-youtube -->
+
+</div>
+
+<script>
+
+  // Simple Overlay
+  $(".btn-content").simpleOverlay({
+    "speed": 800
+  }, function () {
+    console.log("A callback event! WUHU!");
+  });
+
+  // Vimeo Video overlay
+  $(".btn-vimeo").simpleOverlay({
+    "insertBy": "embed",
+    "attribute": "data-vimeo"
+  });
+
+  // Youtube Video overlay
+  $(".btn-youtube").simpleOverlay({
+    "insertBy": "embed",
+    "attribute": "data-youtube"
+  });
+
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<style>
+    @media screen and (max-width: 1000px) and (min-width: 319px){
+
+        #testimonials-sampl{
+            display: none;
+        }
+    }
+</style>
+
+<div class="col-md-3" id="testimonials-sampl">
+
+    <div class="shadow-wrapper">
+
+        <blockquote class="hero box-shadow shadow-effect-2" style="background-color:#5bc0de;border-left:none;border-left: solid 2px #11b9f6;">
+            <strong><p style="color: white"><em>
+                ""We cannot accomplish all that we need to do without working together"</em></p>
+            </strong><small style="color: white"><em>Bill Richardson</em></small>
+        </blockquote>
+
+        <hr>
+
+
+        <blockquote class="hero box-shadow shadow-effect-2" style="background-color:#fff;border-left:none; border-right: solid 2px #11b9f6;">
+            <p><em>"We can't help everyone, but everyone can help someone "</em></p>
+            <small><em>Dr. Loretta Scott</em></small>
+        </blockquote>
+
+        <hr>
+
+        <blockquote class="hero box-shadow shadow-effect-2" style="background-color:#FAFAFA;border-left:none; border-left: solid 2px #11b9f6;">
+            <p><em>"No-one has ever become poor by giving"</em></p>
+            <small><em>Anne Frank</em></small>
+        </blockquote>
+
+    </div>
+
+</div>
+
+<div class="col-md-8 col-md-offset-1">
+    <!-- General Unify Forms -->
+    <div class="heading heading-v3 margin-bottom-30">
+        <h2><header style="background:transparent;color:#11b9f6;border: none">
+            Create Your Fundraiser</header></h2>
+        <p style="color: #9E9E9E"><strong><i>Tell us about the good you want to do and we will help you in it.</i></strong></p>    </div>
+    <form name="form_reg" class="sky-form" style="background:#555;border: solid 1px #eee;box-shadow: 0 0 3px #eee;">
+
+
+        <fieldset >
+            <section>
+                <label class="label">Title  <em> {Maximum 140 Characters}</em><span class="color-red"> *</span>
+                    <span class="red" style="background-color: #ffffff;color: red"  ng-show="form_reg.name.$invalid && form_reg.name.$touched"> Required </span>
+                </label>
+                <label class="input">
+                    <input type="text" placeholder="Title" tabindex="1"  ng-model="fund.name" name="name" ng-maxlength="140" required >
+                </label>
+            </section>
+
+            <section>
+                <label class="label">Description<span class="color-red"> *</span>
+                    <span class="red" style="background-color: #ffffff;color: red"  ng-show="form_reg.description.$invalid && form_reg.description.$touched"> Required </span>
+                </label>
+                <div><text-angular ta-toolbar="[ ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'pre', 'quote','bold', 'italics', 'underline', 'ul', 'ol', 'redo', 'undo'],
+      ['justifyLeft', 'justifyCenter', 'justifyRight', 'indent', 'outdent'],
+      ['insertLink']]" ng-model="fund.description" name="description" tabindex="2" class="btn-groups" required=""></text-angular></div>
+                <br>
+
+            </section>
+
+
+
+            <div class="row">
+                <section class="col col-6">
+                    <label class="label">Select Start Date <span class="color-red"> *</span>
+                        <span class="red" style="background-color: #ffffff;color: red"  ng-show="form_reg.start.$invalid && form_reg.start.$touched"> Required</span>
+                    </label>
+                    <label class="input">
+                        <i class="icon-append fa fa-calendar"></i>
+                        <input class="form-control" id="datetimepicker" size="16" tabindex="3" type="text" value=""  ng-model="start" name="start" style="cursor: default;" required>
+                    </label>
+                </section>
+                <section class="col col-6">
+                    <label class="label">Select Finish Date <span class="color-red"> *</span>
+                        <span class="red" style="background-color: #ffffff;color: red"  ng-show="form_reg.finish.$invalid && form_reg.finish.$touched"> Required</span>
+                    </label>
+                    <label class="input">
+                        <i class="icon-append fa fa-calendar"></i>
+                        <input class="form-control" id="datetimepicker1" size="16" tabindex="4" type="text" value=""  ng-model="finish" name="finish" style="cursor: default;" required>
+                    </label>
+                </section>
+            </div>
+
+
+
+
+
+        </fieldset>
+
+        <fieldset>
+
+            <section>
+                <label class="label">Expected Amount <span class="color-red"> *</span>
+
+                    <span class="red" style="background-color: #ffffff;color: red"  ng-show="form_reg.amount_expected.$invalid && form_reg.amount_expected.$touched"> Required</span>
+
+                </label>
+                <label class="input">
+                    <input type="number" ng-model="fund.amount_expected" tabindex="5" name="amount_expected" placeholder="Expected Amount" required>
+                </label>
+            </section>
+
+
+            <section>
+                <label class="label">Select NGO <span class="color-red"> *</span>
+                    <span class="red" style="background-color: #ffffff;color: red"  ng-show="form_reg.ngo.$invalid && form_reg.ngo.$touched"> Required</span>
+
+                </label>
+                <label class="select">
+                    <select class="form-control" name="ngo"   ng-model="fund.ngo" tabindex="6"  ng-options="value.ngo_id as value.name  for value in ngolist" required>
+                        <option value="" disabled="" selected="">Select NGO</option>
+                        <option>--</option>
+                    </select>
+
+                    <i></i>
+                </label>
+            </section>
+
+            <section>
+                <label class="label">Select featured picture <span class="color-red"> *</span>
+                    <span class="red" style="background-color: #ffffff;color: red"  ng-show="form_reg.filep.$invalid && form_reg.filep.$touched"> Required</span>
+
+                </label>
+                <label  class="input input-file">
+                    <div class="button">
+                        <input type="file"  ngf-select ng-model="filep" name="filep" id="fileInput" ngf-pattern="'image/*'" tabindex="7"
+                               ngf-accept="'image/*'" ngf-max-size="15MB" ngf-min-height="100" required
+                               >Browse</div>
+                  <br>
+                </label>
+
+                <div class="col-sm-12 col-sm-offset-2">
+                    <div style="">
+                        <div style="margin-top: 20px;margin-bottom: 20px;">
+                            <a>
+                                <img src="{{myImage}}" class="img-responsive" width="500px;"  height="200px;">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+
+
+
+
+
+            <!--<input type="submit" class="btn-u" name="submit" value="Submit" ng-click="upload_video(filep)">-->
+
+
+        </fieldset>
+
+
+        <footer>
+            <button type="button" class="btn-u btn-u-default " >Reset</button>
+
+            <button  type="button" class="btn-u pull-right" ng-disabled="form_reg.$invalid" ng-click="create_fund(filep)"  tabindex="8">Submit</button>
+        </footer>
+    </form>
+</div>
+
+
+<script>
+
+    jQuery('#datetimepicker').datetimepicker({
+        timepicker:false,
+        format:'d-m-Y',
+        formatDate:'Y-m-d',
+        minDate:'-1970-01-01',//yesterday is minimum date(for today use 0 or -1970/01/01)
+
+    });
+
+    jQuery('#datetimepicker1').datetimepicker({
+        timepicker:false,
+        format:'d-m-Y',
+        formatDate:'Y-m-d',
+        minDate:'-1970-01-01',//yesterday is minimum date(for today use 0 or -1970/01/01)
+
+    });
+
+
+
+
+
+</script>

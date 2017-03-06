@@ -1,0 +1,211 @@
+<style>
+    a:hover {
+        color: #72c02c;
+        text-decoration: none;
+    }
+</style>
+
+<div class="wrapper" style="background-color: whitesmoke;background:url('libs/assets/img/team/faces3.png') 50% 0 repeat fixed;overflow-x: hidden;" >
+<div class="job-img margin-bottom-20">
+    <div class="row">
+        <div class="col-md-4">
+    <div class="" style="margin-top: 20px;">
+        <div class="service-block service-block-sea service-or">
+            <a ui-sref="dashboard.storydetail({_id:'18'})">
+            <div class="service-bg"></div>
+            <i class="icon-custom  rounded-x icon-color-sea icon-line fa fa-tint" style="color:white;border:solid 1px white;"></i>
+             <span><h2 class="heading-md">Trending Event </h2>
+
+                 <em style="color: white">Click to Know</em>
+             </span>
+            </a>
+
+        </div>
+    </div>
+        </div>
+        <div class="col-md-4">
+            <div style="margin-top: 20px;">
+                <div class="service-block" style="">
+                   <!-- <a ui-sref="dashboard.storydetail({_id:'19'})">-->
+                    <div class="service-bg"></div>
+                    <!--<i class="icon-custom  rounded-x icon-color-sea icon-line icon-badge" style="color:white;border:solid 1px white;"></i>-->
+ <span>
+                    <!--<h2 class="heading-md" style="text-decoration: none;">Trending Fundraiser</h2>-->
+
+                    <!--<em style="color: white">Click to Know</em>-->
+
+     </span>
+                    </a>
+                </div>
+            </div>
+        </div>-->
+        <div class="col-md-4">
+            <div style="margin-top: 20px;">
+                <div class="service-block service-block-sea service-or" style="background: rgba(128,0,128,.5);">
+                    <a ui-sref="dashboard.storydetail({_id:'21'})">
+                    <div class="service-bg"></div>
+                    <i class="icon-custom  icon-color-light rounded-x fa fa-lightbulb-o"></i>
+                    <span>
+                    <h2 class="heading-md">Story of the Week</h2>
+                    <em style="color: white">Click to Know</em>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<div class="job-img margin-bottom-30" style="background-image: none;min-height: 60px;">
+
+   <!-- <div class="job-img-inputs">
+        <div class="container">
+            <form action="" class="sky-form page-search-form" style="border:none;">
+                <div class="inline-group">
+                    <label class="checkbox" style="color: white">FILTER :</label>
+                    <label class="checkbox" style="color: white"><input type="checkbox" name="checkbox-inline" ng-model="event" ng-change="checkchange('event')"><i></i>Events</label>
+                    <label class="checkbox" style="color: white"><input type="checkbox" name="checkbox-inline" ng-model="funder" ng-change="checkchange('fundraiser')"><i></i>Fundraisers</label>
+                    <label class="checkbox" style="color: white"><input type="checkbox" name="checkbox-inline" ng-model="story" ng-change="checkchange('story')"><i></i>Stories</label>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> -->
+
+<!--border: 3px solid white;box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);-->
+
+<div class="card-columns">
+    <div class="row ">
+<div class="col-md-4 col-sm-6" style="margin-bottom:15px;" ng-repeat="list in lists" >
+        <div class=" easy-block-v2 team-v2 " ng-if="list.type=='event'" style="margin-bottom:8px;">
+            <a ui-sref="dashboard.eventdetail({_id:list.event_id})">
+            <img alt="" src="{{list.file_url}}" height="180px;" style=" background-color: white">
+            <div class="easy-bg-v2 rgba-purple" style="background-color: green">{{list.type}}</div>
+            </a>
+            <div class=""style="padding: 5px; background-color: white">
+                <strong>
+                    <a ui-sref="dashboard.eventdetail({_id:list.event_id})">
+                <h3 style="color: #00B1EB; font-size: 1.2em;
+    margin-bottom: 10px;
+    min-height: 40px;">{{list.name | capitalize }}</h3>
+                        </a>
+                <ul class="list-inline ">
+                    <li>By <a class="color-green" href="#">{{list.creator_name | capitalize}}</a></li>
+                    <li class="pull-right"><i class="fa fa-clock-o"></i>
+                        <strong>{{list.start_date | date}}  -  {{list.end_date | date}}</strong></li>
+                </ul>
+                <ul class="list-unstyled">
+                    <li><span class="color-green">Venue: </span>
+                        {{list.address_line_1 | capitalize}} {{list.address_line_2 | capitalize}} , {{list.city | capitalize}}
+
+                    </li>
+
+
+                </ul>
+            </strong>
+                <hr style="margin: 10px 0 15px;">
+                <ul class="list-inline team-social">
+                    <li class=""> <a class="btnz share facebook" socialshare
+                                     socialshare-url="{{list.share_url}}"
+                                     socialshare-provider="facebook"
+style="border-radius: 10% !important; cursor: pointer;"
+                            ><i class="fa fa-facebook"></i>  </a></li>
+                    <li class="pull-right"><button ng-click="eventgo(list.event_id)"  class="btn  btn btn-block btn-flattr rounded "  >
+                        Join Now
+                    </button></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class=" easy-block-v2 team-v2 " ng-if="list.type=='fundraiser'" style="margin-bottom:8px;">
+            <a ui-sref="dashboard.funddetail({_id:list.fundraiser_id})">
+            <img alt="" src="{{list.file_url}}" height="180px;" style=" background-color: white">
+            <div class="easy-bg-v2 rgba-purple" style="font-size: x-small">{{list.type}}</div>
+            </a>
+            <div class=""style="padding: 5px; background-color: white">
+                <strong>
+                    <a ui-sref="dashboard.funddetail({_id:list.fundraiser_id})">
+                <h3 style="color: #00B1EB; font-size: 1.2em;
+    margin-bottom: 10px;
+    min-height: 40px;">{{list.name | capitalize }}</h3>
+                        </a>
+                <ul class="list-inline ">
+                    <li>By <a class="color-green" href="#">{{list.creator_name | capitalize}}</a></li>
+                    <li class="pull-right" ><i class="fa fa-clock-o"></i> {{list.start_date | date}}  -  {{list.end_date | date}}</li>
+                </ul>
+                    <div class="progress">
+
+                        <div class="progress-bar progress-bar-primary progress-bar-striped" role="progressbar"
+                             aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+                            40% Complete (success)
+                        </div>
+                    </div>
+
+                    </strong>
+                <hr style="margin: 5px 0 5px;">
+                <ul class="list-inline team-social">
+                    <li class=""> <a class="btnz share facebook" socialshare
+                                     socialshare-url="{{list.share_url}}"
+                                     socialshare-provider="facebook"
+                                     style="border-radius: 10% !important; cursor: pointer;"
+                            ><i class="fa fa-facebook"></i> </a></li>
+                    <li class="pull-right"><button ng-click="fundgo(list.fundraiser_id)"  class="btn btn-block btn-stackoverflow rounded"  >
+                        Donate
+                    </button></li>
+                </ul>
+
+
+            </div>
+
+        </div>
+        <div class=" easy-block-v2 team-v2 " ng-if="list.type=='story'" style="margin-bottom:8px;">
+            <a ui-sref="dashboard.storydetail({_id:list.story_id})">
+            <img  alt="" src="{{list.file_url}}"   style=" height:180px;background-color: white">
+            <div class="easy-bg-v2 rgba-purple" style="background-color: orangered;">{{list.type}}</div>
+            </a>
+            <div class="" style="padding: 5px; background-color: white">
+                <strong>
+                    <a ui-sref="dashboard.storydetail({_id:list.story_id})">
+                <h3 style="color: #00B1EB;    font-size: 1.2em;
+    margin-bottom: 10px;
+    min-height: 40px;">{{list.title | capitalize}}</h3>
+                        </a>
+                    <p ng-if="list.subtitle">{{list.subtitle}}</p>
+                    <p ng-if="!list.subtitle">Based on Real Life Story</p>
+                <ul class="list-inline ">
+                    <li>By <a class="color-green" href="#">{{list.creator_name | capitalize}}</a></li>
+                    <li  class="pull-right"><i class="fa fa-clock-o"></i> {{list.created_at.split(' ')[0] | date}}</li>
+                </ul>
+
+
+                    </strong>
+                <hr style="margin: 10px 0 15px;">
+                <ul class="list-inline team-social">
+                    <li class=""> <a class="btnz share facebook" socialshare
+                                     socialshare-url="{{list.share_url}}"
+                                     socialshare-provider="facebook"
+                                     style="border-radius: 10% !important; cursor: pointer;"
+                            ><i class="fa fa-facebook"></i> </a></li>
+                    <li class="pull-right"><button  ng-click="storygo(list.story_id)" class="dropdown btn btn-block  btn-linkedin rounded "  >
+                        Submit your own
+                    </button></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+
+
+</div>
+
+
+<script>
+    $(document).ready(function() {
+        var height = Math.max($(".easy-block-v2").outerHeight( true ), $(".easy-block-v2").outerHeight( true ));
+        $(".easy-block-v2").outerHeight(height);
+        $(".easy-block-v2").outerHeight(height);
+    });
+</script>

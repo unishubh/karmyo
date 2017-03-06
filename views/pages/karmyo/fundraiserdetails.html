@@ -1,0 +1,208 @@
+<head>
+
+    <style>
+        .btn:hover {
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+        }
+        .btn-linkedin-inversed {
+            background-color: #0083a8;
+            border-color: #0083a8;
+            color: white; }
+        .btn-linkedin-inversed:hover {
+            background-color: transparent;
+            color: #0083a8; }
+        .btn-linkedin {
+            background-color: transparent;
+            border-color: #0083a8;
+            color: #0083a8; }
+        .btn-linkedin:hover {
+            background-color: #0083a8;
+            color: white; }
+
+        .donation-wrapper {
+            padding: 20px;
+            background-color: #3A3A3A;
+            color: #fff;
+            font-family: Verdana;
+            border-radius: 10px;
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+        }
+    </style>
+</head>
+
+<div class="wrapper"  style="background: white">
+
+
+
+
+    <!--=== Content Part ===-->
+    <div class="container content" >
+        <div class="row blog-page">
+            <!-- Left Sidebar -->
+            <div class="col-md-8">
+                <!--Blog Post-->
+                <div class="blog margin-bottom-40">
+                    <h2><a  style="font-size:xx-large">{{fund.name}}</a></h2>
+
+                    <div class=" blog-post-tags col-md-12" style="border-bottom: none;">
+                        <div class="pull-left" style="margin-top: 10px;">
+
+                            <span style="font-size:medium; margin-left: 10px; ">Initiated By <i> {{fund.creator_name}} </i></span>
+                        </div>
+
+
+                        <div class="pull-right" style="margin-top: 5px;">
+
+                            <a class="btn btn-linkedin rounded" socialshare
+                               socialshare-url="{{fund.share_url}}"
+                               socialshare-provider="facebook"
+
+                                    > Share </a>
+                        </div>
+
+                    </div>
+
+
+                    <div class="margin-top-20 blog-img">
+                        <img class="img-responsive" src="{{fund.file_url}}" style="height:350px; width:100%" alt="">
+                    </div>
+
+
+
+
+
+                    <br>
+                    <!--<div class="blog-post-tags">-->
+                    <!--<ul class="list-unstyled list-inline blog-info">-->
+
+                    <!--<li style="font-size:medium;"><i class="fa fa-calendar" style="color: rgb(0, 177, 235); padding-right: 5px;font-size: 24px;"></i>{{states[0].start_date}}</li>-->
+                    <!--<li style="font-size:medium;"><span class="glyphicon glyphicon-time" style="color: rgb(0, 177, 235);font-size: 24px;padding-right: 2px;"></span> {{states[0].start_time}}</li>-->
+                    <!--<li style="font-size:medium;"><span class="glyphicon glyphicon-globe" style="color: rgb(0, 177, 235);font-size: 24px;padding-right: 5px;"></span>{{states[0].location}}</li>-->
+
+                    <!--</ul>-->
+
+
+                    <!--</div>-->
+                    <div class="panel">
+                        <div class="panel-heading " >
+                            <span class="color-blue font-light" style="font-size: large">Descriptions</span>
+                        </div>
+                        <div class="panel-body no-margin" ng-bind-html="fund.description" style="font-size: 14px;">
+
+
+
+
+                        </div>
+                    </div>
+                    <div class="panel" ng-if="!fund.ngo_id">
+                        <div class="panel-heading " >
+                            <span class="color-blue font-light" style="font-size: large" >Social Impacts</span>
+                        </div>
+                        <div class="panel-body no-margin" ng-bind-html="fund.social_impact" style="font-size: 14px;">
+
+
+                        </div>
+
+
+                    </div>
+
+                    <div class="panel" ng-if="fund.ngo_id">
+                        <div class="panel-heading " >
+                            <span class="color-blue font-light" style="font-size: large" >NGO - </span>
+                            <span class="color-blue font-light" style="font-size: medium" >{{fund.ngo_name}}</span>
+                        </div>
+                        <div class="panel-body no-margin" ng-bind-html="fund.ngo_description" style="font-size: 14px;">
+                        </div>
+
+
+                    </div>
+
+                    <div id="fb-root"></div>
+
+
+                    <hr style="color:black">
+                    <div class="fb-comments" dyn-fb-comment-box page-href="{{curPath}}" data-numposts="5" data-colorscheme="light" data-width="100%"></div>
+
+                </div>
+                <!--End Blog Post-->
+
+
+            </div>
+            <!-- End Left Sidebar -->
+
+            <!-- Right Sidebar -->
+            <div class="col-md-3 magazine-page ">
+                <!-- Search Bar -->
+                <div class="headline headline-md"><h2>Ends In</h2></div>
+                <div class="margin-bottom-30 " >
+                    <div class="col-md-12 col-md-offset-2">
+                    <h1 style="margin-top: 5px; padding: 20px;"><timer end-time="fund.end_date">{{days}} : {{hours}} : {{minutes}} : {{seconds}} </timer></h1>
+                    </div>
+                </div>
+
+
+                <div class="headline headline-md"><h2>Amount Expected</h2></div><br>
+                <div class="margin-bottom-30" >
+
+                    <div class="progress" tooltip="Total Expected : {{fund.amount_expected}}">
+
+                        <div class="progress-bar progress-bar-primary progress-bar-striped"  role="progressbar"
+                             aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+                            40% Complete (success)
+                        </div>
+                    </div>
+                </div>
+                <div class="headline headline-md"><h2>Donate Now</h2></div>
+                <div class="margin-bottom-40">
+                    <div class="col-md-12 ">
+                    <div class="donation-wrapper" style="margin-top: 10px; padding: 20px;">
+                        <form >
+                            <h5 style="color: white">Enter Amount</h5>
+
+                            <input type="text" class="form-control" placeholder="Enter Amt. in Rs." name="amount" required >
+                            <hr />
+                            <input type="submit" class="btn btn-block btn-info" value="Coming Soon">
+                        </form>
+                    </div>
+                        </div>
+
+                </div>
+
+                <!-- End Search Bar -->
+
+                <!-- Posts -->
+                <div class="posts margin-bottom-40">
+                    <br>
+                    <div class="headline headline-md"><h2>Latest FundRaisers</h2></div>
+                    <dl class="dl-horizontal" ng-repeat="eventdata in latest">
+                        <dt><a><img ng-src="{{eventdata.file_url}}" alt="" style="height:60px;"/></a></dt>
+                        <dd>
+                            <p><a ui-sref="dashboard.funddetail({_id:eventdata.fundraiser_id})">{{eventdata.name | capitalize}}</a></p>
+
+                            <ul class="list-unstyled list-inline blog-info">
+                                <li style="font-size:xx-small;"><i class="fa fa-calendar" style="color: rgb(0, 177, 235);font-size: 16px ;padding-right:5px;"></i>{{eventdata.start_date}} </li> to
+                                <li style="font-size:xx-small;"><i class="fa fa-calendar" style="color: rgb(0, 177, 235);font-size: 16px ;padding-right:5px;"></i>{{eventdata.end_date}}</li>
+
+
+
+                            </ul></dd>
+                    </dl>
+                </div><!--/posts-->
+
+
+
+
+            </div>
+            <!-- End Right Sidebar -->
+        </div><!--/row-->
+    </div><!--/container-->
+    <!--=== End Content Part ===-->
+
+    <!--=== Footer Version 1 ===-->
+
+    <!--=== End Footer Version 1 ===-->
+</div><!--/wrapper-->

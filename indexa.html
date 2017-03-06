@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Karmyo</title>
+
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta property="fb:app_id" content="1376345979059247" />
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <!-- Web Fonts -->
+  <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+
+  <!-- CSS Global Compulsory -->
+  <link rel="stylesheet" href="libs/assets/plugins/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="libs/assets/css/style.css">
+
+
+  <!-- CSS Header and Footer -->
+  <link rel="stylesheet" href="libs/assets/css/headers/header-default.css">
+
+
+  <link rel="stylesheet" href="libs/assets/css/pages/blog.css">
+  <link rel="stylesheet" href="libs/assets/css/pages/blog_magazine.css">
+
+  <!-- CSS Implementing Plugins -->
+  <link rel="stylesheet" href="libs/assets/plugins/animate.css">
+  <link rel="stylesheet" href="libs/assets/plugins/line-icons/line-icons.css">
+  <link rel="stylesheet" href="libs/assets/plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="libs/assets/plugins/parallax-slider/css/parallax-slider.css">
+  <link rel="stylesheet" href="libs/assets/plugins/owl-carousel/owl-carousel/owl.carousel.css">
+  <link rel="stylesheet" href="libs/assets/plugins/sky-forms-pro/skyforms/css/sky-forms.css">
+  <link rel="stylesheet" href="libs/assets/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css">
+  <link rel="stylesheet" type="text/css" href="libs/assets/plugins/datetimepicker/jquery.datetimepicker.css">
+  <link rel="stylesheet" href="libs/assets/css/pages/profile.css">
+  <link rel="stylesheet" href="libs/assets/css/pages/shortcode_timeline2.css">
+  <link rel="stylesheet" href="libs/assets/css/pages/page_job.css">
+  <link rel="stylesheet" href="libs/assets/plugins/brand-buttons/brand-buttons.css">
+  <link rel="stylesheet" href="libs/assets/plugins/brand-buttons/brand-buttons-inversed.css">
+  <link rel="stylesheet" href="libs/assets/css/footers/footer-v2.css">
+
+
+
+
+  <!-- CSS Theme -->
+  <link rel="stylesheet" href="libs/assets/css/theme-colors/blue.css" id="style_color">
+  <link rel="stylesheet" href="libs/assets/css/theme-skins/dark.css">
+  <link rel="stylesheet" href="libs/angular/angular-loading-bar/build/loading-bar.css" type="text/css" />
+  <!-- CSS Customization -->
+  <link rel="stylesheet" href="libs/assets/css/custom.css">
+</head>
+<body ng-app="app" style="background-color: whitesmoke;background:url('') 50% 0 repeat fixed;overflow-x: hidden;">
+  <div class="app" ng-controller="AppCtrl"></div>
+
+
+
+<ui-view></ui-view>
+
+
+
+
+  <!-- JS Global Compulsory -->
+  <script type="text/javascript" src="libs/assets/plugins/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="libs/assets/plugins/jquery/jquery-migrate.min.js"></script>
+  <script type="text/javascript" src="libs/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+  <!-- JS Implementing Plugins -->
+  <script type="text/javascript" src="libs/assets/plugins/back-to-top.js"></script>
+  <script type="text/javascript" src="libs/assets/plugins/smoothScroll.js"></script>
+  <script type="text/javascript" src="libs/assets/plugins/parallax-slider/js/modernizr.js"></script>
+  <script type="text/javascript" src="libs/assets/plugins/parallax-slider/js/jquery.cslider.js"></script>
+  <script type="text/javascript" src="libs/assets/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
+  <!-- JS Customization -->
+  <script type="text/javascript" src="libs/assets/js/custom.js"></script>
+  <!-- JS Page Level -->
+  <script type="text/javascript" src="libs/assets/js/app.js"></script>
+  <script type="text/javascript" src="libs/assets/js/plugins/owl-carousel.js"></script>
+  <script type="text/javascript" src="libs/assets/js/plugins/style-switcher.js"></script>
+  <script type="text/javascript" src="libs/assets/js/plugins/parallax-slider.js"></script>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+
+
+  <!--[if lt IE 9]>
+  <script src="libs/assets/plugins/respond.js"></script>
+  <script src="libs/assets/plugins/html5shiv.js"></script>
+  <script src="libs/assets/plugins/placeholder-IE-fixes.js"></script>
+  <![endif]-->
+  <script type="text/javascript">
+    jQuery(document).ready(function() {
+      App.init();
+      OwlCarousel.initOwlCarousel();
+      StyleSwitcher.initStyleSwitcher();
+      ParallaxSlider.initParallaxSlider();
+    });
+
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1376345979059247',
+        xfbml      : true,
+        version    : 'v2.1'
+      });
+    };
+
+
+    (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/all.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+
+
+
+
+  </script>
+
+
+
+
+  <!-- Angular -->
+  <script src="libs/angular/angular/angular.js"></script>
+  <script src="libs/angular/angular-animate/angular-animate.js"></script>
+  <script src="libs/angular/angular-aria/angular-aria.js"></script>
+  <script src="libs/angular/angular-cookies/angular-cookies.js"></script>
+  <script src="libs/angular/angular-messages/angular-messages.js"></script>
+  <script src="libs/angular/angular-resource/angular-resource.js"></script>
+  <script src="libs/angular/angular-sanitize/angular-sanitize.js"></script>
+  <script src="libs/angular/angular-touch/angular-touch.js"></script>
+  <script src="libs/angular/angular-material/angular-material.js"></script>
+  <script src="libs/angular/angular-socialshare.min.js"></script>
+
+  <!-- Vendor -->
+  <script src="libs/angular/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="libs/angular/ngstorage/ngStorage.js"></script>
+  <script src="libs/angular/angular-ui-utils/ui-utils.js"></script>
+
+  <!-- bootstrap -->
+  <script src="libs/angular/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
+  <!-- lazyload -->
+  <script src="libs/angular/oclazyload/dist/ocLazyLoad.js"></script>
+
+  <script src="libs/angular/angular-loading-bar/build/loading-bar.js"></script>
+  <script type="text/javascript" src="libs/angular/angular-timer/angular-timer.min.js"></script>
+  <script type="text/javascript" src="libs/angular/angular-timer/humanize-duration.js"></script>
+  <script src="libs/assets/plugins/datetimepicker/build/jquery.datetimepicker.full.min.js"></script>
+  <script type="text/javascript" src="libs/angular/angular-timer/moment.js"></script>
+  <script type="text/javascript" src="libs/angular/ng-map.min.js"></script>
+
+  <script src="https://npmcdn.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
+  <link rel="stylesheet" href="https://npmcdn.com/angular-toastr/dist/angular-toastr.css" />
+  <!-- App -->
+  <script src="scripts/app.js"></script>
+  <script src="scripts/config.js"></script>
+  <script src="scripts/config.lazyload.js"></script>
+  <script src="scripts/config.router.js"></script>
+  <script src="scripts/app.ctrl.js"></script>
+  <script src="scripts/services/auth.js"></script>
+  <script src="scripts/services/serviceprovision.js"></script>
+  <script src="libs/angular/angular-file-upload/ng-file-upload-all.js"></script>
+  <script src="libs/angular/angular-file-upload/ng-file-upload-shim.js"></script>
+  <script src="scripts/directives/lazyload.js"></script>
+  <script src="scripts/directives/ui-jp.js"></script>
+  <script src="scripts/services/ngstore.js"></script>
+  <script src="scripts/directives/ui-toggle.js"></script>
+  <script src="scripts/services/ui-load.js"></script>
+
+
+</body>
+</html>

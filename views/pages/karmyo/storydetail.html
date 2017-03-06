@@ -1,0 +1,140 @@
+<head>
+    <style>
+        .p{
+            font-size:15px;
+        }
+        .btn:hover {
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+        }
+        .btn-linkedin-inversed {
+            background-color: #0083a8;
+            border-color: #0083a8;
+            color: white; }
+        .btn-linkedin-inversed:hover {
+            background-color: transparent;
+            color: #0083a8; }
+        .btn-linkedin {
+            background-color: transparent;
+            border-color: #0083a8;
+            color: #0083a8; }
+        .btn-linkedin:hover {
+            background-color: #0083a8;
+            color: white; }
+    </style>
+</head>
+
+<div class="wrapper"  style="background: white">
+
+
+
+
+    <!--=== Content Part ===-->
+    <div class="container content" >
+        <div class="row blog-page">
+            <!-- Left Sidebar -->
+            <div class="col-md-8">
+                <!--Blog Post-->
+                <div class="blog margin-bottom-40">
+                    <h2><a style="font-size:xx-large">{{story.title}}</a></h2>
+
+
+
+                    <div class="margin-top-20 blog-img">
+                        <img class="img-responsive" src="{{story.file_url}}" style="height:350px; width:100%" alt="">
+                    </div>
+
+
+
+
+                    <div class=" blog-post-tags col-md-12" style="border-bottom: none;">
+                        <div class="pull-left" style="margin-top: 10px;">
+
+                            <span style="font-size:medium; margin-left: 2px; ">{{story.creator_name}} on <i>{{story.created_at.split(' ')[0] | date}}</i></span>
+                        </div>
+
+                        <div class="pull-right" style="margin-top: 5px;">
+
+                            <a class="btn btn-linkedin rounded" socialshare
+                               socialshare-url="{{story.share_url}}"
+                               socialshare-provider="facebook"
+
+                                    > Share </a>
+                        </div>
+
+                    </div>
+
+
+                    <div class="panel">
+                        <div class="panel-heading " >
+                            <span class="color-blue font-light" style="font-size: large" ng-if="story.subtitle">{{story.subtitle}}</span>
+                            <span class="color-blue font-light" style="font-size: large" ng-if="!story.subtitle">Based on Real Life Story</span>
+                        </div>
+                        <div class="panel-body no-margin" ng-bind-html="story.content" style="font-size: 14px;">
+                        </div>
+                    </div>
+
+
+                    <div id="fb-root"></div>
+
+
+                    <hr style="color:black">
+                    <div class="fb-comments" dyn-fb-comment-box page-href="{{curPath}}" data-numposts="5" data-colorscheme="light" data-width="100%"></div>
+
+
+
+                </div>
+                <!--End Blog Post-->
+
+
+            </div>
+            <!-- End Left Sidebar -->
+
+            <!-- Right Sidebar -->
+            <div class="col-md-3  magazine-page">
+                <!-- Search Bar -->
+
+
+                <!-- End Search Bar -->
+
+
+                <!-- Posts -->
+                <div class="posts margin-bottom-40">
+                    <div class="headline headline-md"><h2>Latest Stories</h2></div>
+                    <dl class="dl-horizontal" ng-repeat="storydata in latest">
+                        <dt><a><img src="{{storydata.file_url}}" alt="" style="height:60px;"/></a></dt>
+                        <dd>
+                            <p><a ui-sref="dashboard.storydetail({_id:storydata.story_id})">{{storydata.title | capitalize}}</a></p>
+
+                            <ul class="list-unstyled list-inline blog-info">
+
+                                <li style="font-size:xx-small;"><i class="fa fa-calendar" style="color: rgb(0, 177, 235);font-size: 16px ;padding-right:5px;"></i>{{storydata.created_at.split(' ')[0] | date}}</li>
+
+
+
+                            </ul></dd>
+                    </dl>
+
+                </div><!--/posts-->
+                <!-- End Posts -->
+
+
+
+                <!-- Photo Stream -->
+
+
+
+
+
+            </div>
+            <!-- End Right Sidebar -->
+        </div><!--/row-->
+    </div><!--/container-->
+    <!--=== End Content Part ===-->
+
+    <!--=== Footer Version 1 ===-->
+
+    <!--=== End Footer Version 1 ===-->
+</div><!--/wrapper-->
